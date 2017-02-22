@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="primary"> 
+    <ion-title>
+      {{route.name}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <div #map id="map"></div>
+    <div  id="routeStops">
+        <ion-list>
+                <ion-item (click)="centerStop(stop)" *ngFor="let stop of stops">
+                    <ion-icon name="bus" item-left></ion-icon>
+                    <h2>{{stop.name}}</h2>
+                    <p>{{stop.description}}</p>
+                    
+                </ion-item>
+        </ion-list>
+    </div>
+</ion-content>
