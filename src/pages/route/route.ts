@@ -26,7 +26,8 @@ export class RoutePage {
     this.stops=[{id:0,name: "Stop 1",description:"Plaza Colon",lat:-34.9301,lng:138.6000},
     {id:1,name: "Stop 2",description:"MyrAngle",lat:-34.9400,lng:138.6100},
     {id:2,name: "Stop 3",description:"Fabrica de galleta",lat:-34.9430,lng:138.6015},
-    {id:3,name: "Stop 4",description:"Palomino",lat:-34.9601,lng:138.6111}
+    {id:3,name: "Stop 4",description:"Palomino",lat:-34.9601,lng:138.6111},
+     {id:4,name: "Stop 5",description:"Perra",lat:-34.9611,lng:138.6111}
     ];
 
     //meterle el objecto de routes y stops
@@ -35,7 +36,7 @@ export class RoutePage {
 
   loadMap(){
 
-      Geolocation.getCurrentPosition().then((myposition) => {
+     // Geolocation.getCurrentPosition().then((myposition) => {
  
       let latLng = new google.maps.LatLng(-34.9201, 138.6666);
       console.log(latLng);
@@ -54,9 +55,9 @@ export class RoutePage {
             position: latLng
         })
         this.loadStops();
-    }, (err) => {
-      console.log(err);
-    });
+    // }, (err) => {
+    //   console.log(err);
+    // });
    
  
   }
@@ -80,7 +81,7 @@ export class RoutePage {
 }
 centerStop(stop){
 
-    this.map.setCenter(new google.maps.LatLng(stop.lat,stop.lng));
+    this.map.panTo(new google.maps.LatLng(stop.lat,stop.lng));
 
 
 }
