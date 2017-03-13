@@ -15,4 +15,7 @@ export class RoutesStopsService {
     return this.HTTP.get("assets/data/routes.json")
         .map(res =>res.json());
   }
+  getStops(){
+    
+  }
 }

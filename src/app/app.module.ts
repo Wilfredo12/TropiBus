@@ -10,6 +10,7 @@ import { MapOverviewPage } from '../pages/mapOverview/mapOverview';
 import { Routes_StopsPage } from '../pages/routes&stops/routes&stops';
 import { RoutePage } from '../pages/route/route';
 import { RoutesStopsService } from '../providers/routes-stops-service';
+import { ConnectivityService } from '../providers/connectivity-service';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,6 @@ import { RoutesStopsService } from '../providers/routes-stops-service';
     SettingsPage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},RoutesStopsService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ConnectivityService,RoutesStopsService]
 })
 export class AppModule {}

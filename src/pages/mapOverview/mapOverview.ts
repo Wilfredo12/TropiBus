@@ -1,8 +1,8 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
-
+import { RoutesStopsService } from '../../providers/routes-stops-service';
+import { ConnectivityService } from '../../providers/connectivity-service';
 
 declare var google;
 
@@ -16,9 +16,10 @@ export class MapOverviewPage {
   map: any;
   routes:any;
   stops:any;
+  routes_stops_service:any;
  
-  constructor(public navCtrl: NavController) {
- 
+  constructor(public navCtrl: NavController,routes_stops_service:RoutesStopsService) {
+    this.routes_stops_service=routes_stops_service;
   }
  
   ngOnInit(){
@@ -51,43 +52,39 @@ export class MapOverviewPage {
         })
       let content= "<h4>Your location</h4>"
       this.addInfoWindow(marker,content)
-   
+      this.getRoutes();
  
     }, (err) => {
       console.log(err);
     });
- 
+  
+  }
+
+  getRoutes(){
+    this.routes_stops_service.getRoutes().subscribe(response =>{
+        this.routes=response.routes;
+        this.loadRoutes();
+        console.log(response)
+  })
   }
 
   loadRoutes(){
 
     for(var i=0;i<this.routes.length;i++){
       var route=this.routes[i];
+      console.log(route)
       var polyline = new google.maps.Polyline({
           map: this.map,
           path: route.path,
           strokeColor: '#FF0000',
           strokeOpacity: 1.0,
-          strokeWeight: 2
+          strokeWeight: 3
         });
-        var content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
+        let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
         this.addInfoWindow(polyline,content)
     }
-    // var flightPathCoordinates = [
-    //       {lat: 18.3586, lng:-66.0702},  
-    //       {lat: 18.9001, lng: -66.1234},
-    //       {lat: 18.142, lng: -66.4500},
-    //       {lat: 18.242, lng: -66.4700}
-    //     ];
-
-    // var flightPath = new google.maps.Polyline({
-    //       map: this.map,
-    //       path: flightPathCoordinates,
-    //       strokeColor: '#FF0000',
-    //       strokeOpacity: 1.0,
-    //       strokeWeight: 2
-    //     });
   }
+  
   loadStops(){
     for(var i=0;i<this.stops.length;i++){
       var stop=this.stops[i]
@@ -132,14 +129,24 @@ export class MapOverviewPage {
 // }
 addInfoWindow(item, content){
  
-  let infoWindow = new google.maps.InfoWindow({
+  let infowindow = new google.maps.InfoWindow({
     content: content
   });
  
-  google.maps.event.addListener(item, 'click', () => {
-    
-   if (infoWindow) { infoWindow.close();}
-        infoWindow.open(this.map, item);
+  google.maps.event.addListener(item, 'click', (event) => {
+   if(!item.open){
+                infowindow.setPosition(event.latLng)
+                infowindow.open(this.map,item);
+                item.open = true;
+            }
+            else{
+                infowindow.close();
+                item.open = false;
+            }
+            google.maps.event.addListener(this.map, 'click', function() {
+                infowindow.close();
+                item.open = false;
+            });
 
   });
  
