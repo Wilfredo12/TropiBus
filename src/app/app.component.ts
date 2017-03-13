@@ -6,10 +6,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { MapOverviewPage } from '../pages/mapOverview/mapOverview';
 import { Routes_StopsPage } from '../pages/routes&stops/routes&stops';
 import { RoutePage } from '../pages/route/route';
+import { RoutesStopsService } from '../providers/routes-stops-service';
+
+
 
 @Component({
   templateUrl: 'app.html',
-  providers: [RedditService]
+  providers: [RedditService,RoutesStopsService]
 })
 export class MyApp {
   rootPage = TabsPage;
