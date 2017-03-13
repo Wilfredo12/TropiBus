@@ -1,0 +1,19 @@
+{
+    "messages":[
+        {
+            "message_id":0,
+            "message_text": "New route added",
+            "date_added":"01/02/2017"
+        },
+        {
+            "message_id":1,
+            "message_text": "Hi passengers",
+            "date_added":"01/03/2017"
+        },
+        {
+            "message_id":2,
+            "message_text": "New stop added in route 1",
+            "date_added":"01/12/2017"
+        }
+    ]
+}

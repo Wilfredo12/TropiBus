@@ -76,7 +76,7 @@ export class MapOverviewPage {
       var polyline = new google.maps.Polyline({
           map: this.map,
           path: route.path,
-          strokeColor: '#FF0000',
+          strokeColor: route.color,
           strokeOpacity: 1.0,
           strokeWeight: 3
         });

@@ -7,12 +7,13 @@ import { MapOverviewPage } from '../pages/mapOverview/mapOverview';
 import { Routes_StopsPage } from '../pages/routes&stops/routes&stops';
 import { RoutePage } from '../pages/route/route';
 import { RoutesStopsService } from '../providers/routes-stops-service';
+import { Messages } from '../providers/messages';
 
 
 
 @Component({
   templateUrl: 'app.html',
-  providers: [RedditService,RoutesStopsService]
+  providers: [RedditService,RoutesStopsService,Messages]
 })
 export class MyApp {
   rootPage = TabsPage;

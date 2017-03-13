@@ -11,6 +11,7 @@ import { Routes_StopsPage } from '../pages/routes&stops/routes&stops';
 import { RoutePage } from '../pages/route/route';
 import { RoutesStopsService } from '../providers/routes-stops-service';
 import { ConnectivityService } from '../providers/connectivity-service';
+import { Messages } from '../providers/messages';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,6 @@ import { ConnectivityService } from '../providers/connectivity-service';
     SettingsPage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ConnectivityService,RoutesStopsService]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ConnectivityService,RoutesStopsService,Messages]
 })
 export class AppModule {}

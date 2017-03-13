@@ -16,6 +16,15 @@ export class RoutesStopsService {
         .map(res =>res.json());
   }
   getStops(){
-    
+    return this.HTTP.get("assets/data/stops.json")
+        .map(res =>res.json());
+  }
+  getRoute(routeid){
+       return this.HTTP.get("assets/data/route"+routeid+".json")
+        .map(res =>res.json());
+  }
+  getStopsFromRoute(routeid){
+       return this.HTTP.get("assets/data/stops_route"+routeid+".json")
+        .map(res =>res.json());
   }
 }
