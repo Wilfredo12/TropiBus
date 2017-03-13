@@ -8,11 +8,14 @@
 
 <ion-content padding>
  <ion-list>
-  <ion-item (click)="viewRoute(route)" *ngFor="let route of routes">
+  <ion-item  *ngFor="let route of routes">
     <ion-icon name="bus" item-left></ion-icon>
-      <h2>{{route.name}}</h2>
-      <p>{{route.description}}</p>
-    
+      <h2>{{route.route_name}}</h2>
+      <!--<ion-buttons end>-->
+      <button ion-button color="dark"  (click)="viewDescription(route)">Description </button>
+      <button ion-button [color]="getStatus(route.status)">{{route.status}}</button>
+      <button ion-button color="dark"  (click)="viewRoute(route)" round outline end> View&nbsp; <ion-icon name="arrow-dropright"> </ion-icon></button>
+      <!--</ion-buttons>-->
   </ion-item>
 </ion-list>
 

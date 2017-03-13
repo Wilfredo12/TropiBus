@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,AlertController  } from 'ionic-angular';
 import { RoutePage } from '../route/route';
+import { RoutesStopsService } from '../../providers/routes-stops-service';
 
 @Component({
   selector: 'routes_stops',
@@ -10,22 +11,37 @@ export class Routes_StopsPage {
 
   routes: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public alertCtrl:AlertController, public routeService:RoutesStopsService ) {
 
   }
 
   ngOnInit(){
-    this.routes=[{id:0,name: "Route 1",description:"Esta ruta lleva a la plaza colon"},
-    {id:1,name: "Route 2",description:"Ruta hacia el mani"},
-    {id:2,name: "Route 3",description:"Ruta hacia barrio trastalleres"},
-    {id:3,name: "Route 4",description:"Ruta hacia RUM"}
-    ];
+    this.routeService.getRoutes().subscribe(response =>{
+        this.routes=response.routes;
+        console.log(response)
+  })
   }
-
+  viewDescription(route){
+    let alert = this.alertCtrl.create({
+    title: route.route_name,
+    subTitle: route.route_description,
+    buttons: ['OK']
+  });
+  alert.present();
+  }
   viewRoute(route){
      this.navCtrl.push(RoutePage,{
           route:route
       });
+  }
+  getStatus(status){
+    if(status=="Active"){
+      return "secondary"
+    }
+    else if(status == "Inactive"){
+      return "danger"
+    }
+    else return "dark"
   }
 
 }

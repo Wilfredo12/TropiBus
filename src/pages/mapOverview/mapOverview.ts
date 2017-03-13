@@ -17,9 +17,11 @@ export class MapOverviewPage {
   routes:any;
   stops:any;
   routes_stops_service:any;
+  tempRoute:any;
  
   constructor(public navCtrl: NavController,routes_stops_service:RoutesStopsService) {
     this.routes_stops_service=routes_stops_service;
+    
   }
  
   ngOnInit(){
@@ -81,7 +83,7 @@ export class MapOverviewPage {
           strokeWeight: 3
         });
         let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
-        this.addInfoWindow(polyline,content)
+        this.addInfoWindowRoutes(polyline,content)
     }
   }
   
@@ -109,6 +111,7 @@ export class MapOverviewPage {
         let content = "<h4>Your Location!</h4>"; 
         //anadir que abra infowindow o boton         
         this.addInfoWindow(marker, content);
+        this.map.panTo(latLng);
        }, (err) => {
       console.log(err);
     });
@@ -127,13 +130,53 @@ export class MapOverviewPage {
 //   this.addInfoWindow(marker, content);
  
 // }
-addInfoWindow(item, content){
+addInfoWindow(item,content){
+  let infowindow = new google.maps.InfoWindow({
+    content: content
+  });
+   google.maps.event.addListener(item, 'click', (event) => {
+   if(!item.open){
+                infowindow.setPosition(event.latLng)
+                infowindow.open(this.map,item);
+                item.open = true;
+            }
+            else{
+                infowindow.close();
+                item.open = false;
+            }
+            google.maps.event.addListener(this.map, 'click', function() {
+                infowindow.close();
+                item.open = false;
+            });
+
+  });
+}
+addInfoWindowRoutes(item, content){
  
   let infowindow = new google.maps.InfoWindow({
     content: content
   });
- 
+  google.maps.event.addListener(item, 'mouseover', function(latlng) {
+            let path = item.getPath();
+            var polyline = new google.maps.Polyline({
+                map: this.map,
+                path: path,
+                strokeColor: "#42f4d9",
+                strokeOpacity: 1.0,
+                strokeWeight: 7
+              });
+            this.tempRoute=polyline;
+        // let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
+        // this.addInfoWindowRoutes(polyline,content)
+  });
+
+  google.maps.event.addListener(item, 'mouseout', function(latlng) {
+            if(this.tempRoute!=undefined){
+              this.tempRoute.setMap(null);
+            }
+  });
   google.maps.event.addListener(item, 'click', (event) => {
+
    if(!item.open){
                 infowindow.setPosition(event.latLng)
                 infowindow.open(this.map,item);
