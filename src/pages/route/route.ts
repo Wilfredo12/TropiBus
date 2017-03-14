@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {Geolocation} from 'ionic-native';
+//import {Geolocation} from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
 
 declare var google;

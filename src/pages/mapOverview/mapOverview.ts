@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
-import { ConnectivityService } from '../../providers/connectivity-service';
+//import { ConnectivityService } from '../../providers/connectivity-service';
 
 declare var google;
 
@@ -21,12 +21,13 @@ export class MapOverviewPage {
  
   constructor(public navCtrl: NavController,routes_stops_service:RoutesStopsService) {
     this.routes_stops_service=routes_stops_service;
+    this.loadMap();
     
   }
  
   ngOnInit(){
     //checkInternet connection
-    this.loadMap();
+    
     //this.loadRoutes();
     //this.loadStops();
   }
@@ -101,6 +102,7 @@ export class MapOverviewPage {
     }
   }
   myLocation(){
+    this.loadMap();
     Geolocation.getCurrentPosition().then((myposition) => {
         let latLng = new google.maps.LatLng(myposition.coords.latitude, myposition.coords.longitude);
         let marker = new google.maps.Marker({
