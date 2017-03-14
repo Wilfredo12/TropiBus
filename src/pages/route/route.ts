@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
-
+import { RoutesStopsService } from '../../providers/routes-stops-service';
 
 declare var google;
 
@@ -16,7 +16,7 @@ export class RoutePage {
   route:any;
   stops:any;
   
-  constructor(public navCtrl: NavController, public params: NavParams) {
+  constructor(public navCtrl: NavController, public params: NavParams,public routes_stops_service:RoutesStopsService) {
     this.route=params.get("route");
     console.log("entre a la ruta especifica")
   }
@@ -38,22 +38,23 @@ export class RoutePage {
 
      // Geolocation.getCurrentPosition().then((myposition) => {
  
-      let latLng = new google.maps.LatLng(-34.9201, 138.6666);
+      let latLng = new google.maps.LatLng(this.route.path[0].lat,this.route.path[0].lng);
       console.log(latLng);
       let mapOptions = {
         center: latLng,
-        zoom: 11,
+        zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
       }
  
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
-      var marker = new google.maps.Marker({
-            map: this.map,
-            animation: google.maps.Animation.DROP,
-            position: latLng
-        })
+      // var marker = new google.maps.Marker({
+      //       map: this.map,
+      //       animation: google.maps.Animation.DROP,
+      //       position: latLng
+      //   })
+        this.loadRoute();
         this.loadStops();
     // }, (err) => {
     //   console.log(err);
@@ -61,7 +62,17 @@ export class RoutePage {
    
  
   }
-
+  loadRoute(){
+    var polyline = new google.maps.Polyline({
+          map: this.map,
+          path: this.route.path,
+          strokeColor: this.route.color,
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        });
+        let content= "<h4>"+this.route.route_name+"</h4><p>"+this.route.route_description+"</p>"
+        this.addInfoWindow(polyline,content)
+  }
   loadStops(){
     
     for(var i=0;i<this.stops.length;i++){
@@ -85,16 +96,27 @@ centerStop(stop){
 
 
 }
-addInfoWindow(marker, content){
+addInfoWindow(item, content){
  
-  let infoWindow = new google.maps.InfoWindow({
+ let infowindow = new google.maps.InfoWindow({
     content: content
   });
- 
-  google.maps.event.addListener(marker, 'click', () => {
-    infoWindow.open(this.map, marker);
-  });
+   google.maps.event.addListener(item, 'click', (event) => {
+   if(!item.open){
+                infowindow.setPosition(event.latLng)
+                infowindow.open(this.map,item);
+                item.open = true;
+            }
+            else{
+                infowindow.close();
+                item.open = false;
+            }
+            google.maps.event.addListener(this.map, 'click', function() {
+                infowindow.close();
+                item.open = false;
+            });
 
+  });
   }
 
 
