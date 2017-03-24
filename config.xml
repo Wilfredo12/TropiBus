@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.ionreddit849290" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>ionreddit</name>
-  <description>An awesome Ionic/Cordova app.</description>
+<widget id="com.ionicframework.tropiBus" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>TropiBus</name>
+  <description>A TIM Bus App to enable users of the system view information regarding TIM's services</description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
   <content src="index.html"/>
   <access origin="*"/>
+  <allow-navigation href="*" />
   <allow-navigation href="http://ionic.local/*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>

@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
 //import { ConnectivityService } from '../../providers/connectivity-service';
@@ -16,29 +16,28 @@ export class MapOverviewPage {
   map: any;
   routes:any;
   stops:any;
-  routes_stops_service:any;
   tempRoute:any;
  
-  constructor(public navCtrl: NavController,routes_stops_service:RoutesStopsService) {
-    this.routes_stops_service=routes_stops_service;
-    this.loadMap();
+  constructor(public navCtrl: NavController,public routes_stops_service:RoutesStopsService, public alertCtrl:AlertController) {
+    
+    
     
   }
  
   ngOnInit(){
     //checkInternet connection
-    
+    this.loadMap();
     //this.loadRoutes();
     //this.loadStops();
   }
  
   loadMap(){
  
-    Geolocation.getCurrentPosition().then((myposition) => {
+    //Geolocation.getCurrentPosition().then((myposition) => {
  
-      let latLng = new google.maps.LatLng(myposition.coords.latitude, myposition.coords.longitude);
+      let latLng = new google.maps.LatLng(18.2096651, -67.14775279999999);
+      console.log(latLng);
       
-      console.log(myposition.coords.latitude+" "+ myposition.coords.longitude);
       let mapOptions = {
         center: latLng,
         zoom: 15,
@@ -56,10 +55,11 @@ export class MapOverviewPage {
       let content= "<h4>Your location</h4>"
       this.addInfoWindow(marker,content)
       this.getRoutes();
+      this.getStops();
  
-    }, (err) => {
-      console.log(err);
-    });
+    // }, (err) => {
+    //   console.log(err);
+    // });
   
   }
 
@@ -70,7 +70,13 @@ export class MapOverviewPage {
         console.log(response)
   })
   }
-
+  getStops(){
+    this.routes_stops_service.getStops().subscribe(response =>{
+        this.stops=response.stops;
+        this.loadStops();
+        console.log(response)
+  })
+  }
   loadRoutes(){
 
     for(var i=0;i<this.routes.length;i++){
@@ -91,7 +97,7 @@ export class MapOverviewPage {
   loadStops(){
     for(var i=0;i<this.stops.length;i++){
       var stop=this.stops[i]
-      var latlng = new google.maps.LatLng(stop.latitude, stop.longitude);
+      var latlng = new google.maps.LatLng(stop.stop_latitude, stop.stop_longitude);
       let stop_marker = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
@@ -102,7 +108,7 @@ export class MapOverviewPage {
     }
   }
   myLocation(){
-    this.loadMap();
+    
     Geolocation.getCurrentPosition().then((myposition) => {
         let latLng = new google.maps.LatLng(myposition.coords.latitude, myposition.coords.longitude);
         let marker = new google.maps.Marker({
@@ -115,7 +121,13 @@ export class MapOverviewPage {
         this.addInfoWindow(marker, content);
         this.map.panTo(latLng);
        }, (err) => {
-      console.log(err);
+         let alert = this.alertCtrl.create({
+            title: 'Location not enable',
+            subTitle: 'Please go to location settings and enable location',
+            buttons: ['Dismiss']
+          });
+          alert.present();
+          console.log(err);
     });
   }
 
