@@ -85,7 +85,7 @@ export class RoutePage {
               position: new google.maps.LatLng(this.stops[i].stop_latitude,this.stops[i].stop_longitude)
             });
           
-        let content = this.stops[i].description;          
+        let content = "<h4>"+this.stops[i].stop_name+"</h4><p>"+this.stops[i].stop_description+"</p>";          
           
         this.addInfoWindow(marker, content);
       
@@ -93,21 +93,25 @@ export class RoutePage {
     }
   
 }
+
 centerStop(stop){
 
     this.map.panTo(new google.maps.LatLng(stop.stop_latitude,stop.stop_longitude));
 }
+
 nearbyStop(){ 
     if(this.locationMarker!=null||this.nearbyStopMarker!=null){
       this.locationMarker.setMap(null);
       this.nearbyStopMarker.setMap(null);
     }
     Geolocation.getCurrentPosition().then((myposition) => {
-        let latitude=myposition.coords.latitude;
-        let longitude=myposition.coords.longitude;
-        let latLng = new google.maps.LatLng(myposition.coords.latitude, myposition.coords.longitude);
+        let latitude=18.2047609;
+        let longitude=-67.1385972;
+        // let latitude=myposition.coords.latitude;
+        // let longitude=myposition.coords.longitude;
+        let latLng = new google.maps.LatLng(latitude, longitude);
         ///keep going
-        let nearbyStopCoordinates= this.getShortestDistance(latitude, longitude);
+       
         this.locationMarker = new google.maps.Marker({
           map: this.map,
           animation: google.maps.Animation.DROP,
@@ -116,7 +120,19 @@ nearbyStop(){
         let content = "<h4>Your Location!</h4>"; 
         //anadir que abra infowindow o boton         
         this.addInfoWindow(this.locationMarker, content);
-        this.map.panTo(latLng);
+
+        let nearbyStopCoordinates= this.getShortestDistance(latitude, longitude);
+        console.log("nearby coordinates",nearbyStopCoordinates)
+        let nearbyLatLng=new google.maps.LatLng(nearbyStopCoordinates.stop_latitude,nearbyStopCoordinates.stop_longitude);
+        this.nearbyStopMarker=new google.maps.Marker({
+          map: this.map,
+          animation: google.maps.Animation.DROP,
+          position: nearbyLatLng
+        });
+        let content1 = "<h4>NearbyStop</h4>"; 
+        this.addInfoWindow(this.nearbyStopMarker,content1)
+
+        this.map.panTo(nearbyLatLng);
        }, (err) => {
          let alert = this.alertCtrl.create({
             title: 'Location not enable',
@@ -129,7 +145,7 @@ nearbyStop(){
  
 }
 getShortestDistance(lat,lng){
-  var shortestDistance=1000
+  var shortestDistance=10e10
   var closestCoordinates={stop_latitude:0,stop_longitude:0}
   for(var i=0;i<this.stops.length;i++){
     var stop=this.stops[i]
@@ -155,10 +171,11 @@ harvesineFormula(lat1,lon1,lat2,lon2){
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
   var d = R * c;
+  console.log(d)
   return d
 }
-toRad(Value) {
-    return Value * Math.PI / 180;
+toRad(degrees) {
+    return degrees * Math.PI / 180;
 }
 addInfoWindow(item, content){
  
