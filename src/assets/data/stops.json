@@ -1,14 +1,14 @@
 {
     "stops":[
         {            
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-1",
             "stop_description":"Alcaldia",
             "stop_latitude":16,
             "stop_longitude":18
         },
          {
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-2",
             "stop_description":"Balboa, frente a Mr. Special",
             "stop_latitude":16,
@@ -16,7 +16,7 @@
         },
          {
             
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-3",
             "stop_description":"Balboa, frente a Garaje Toro",
             "stop_latitude":16,
@@ -24,7 +24,7 @@
         },
          {
             
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-4",
             "stop_description":"Palacio Recreacion y Deportes, Wilkins",
             "stop_latitude":16,
@@ -32,7 +32,7 @@
         },
          {
             
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-5",
             "stop_description":"RUM - Calle Pinos",
             "stop_latitude":16,
@@ -40,7 +40,7 @@
         },
          {
             
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-6",
             "stop_description":"RUM Calle Las Palmeras",
             "stop_latitude":16,
@@ -48,7 +48,7 @@
         },
          {
             
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-7",
             "stop_description":"RUM - Calle Los Caobos",
             "stop_latitude":16,
@@ -56,7 +56,7 @@
         },
          {
             
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-8",
             "stop_description":"Calle Martinez Nadal frente a Palacio",
             "stop_latitude":16,
@@ -64,7 +64,7 @@
         },
          {
             
-            "route_id":0,
+            "route_ID":0,
             "stop_name":"R1-9",
             "stop_description":"Calle Martinez Nadal frente a Parque Proceres",
             "stop_latitude":16,
@@ -72,7 +72,7 @@
         },
         {
             
-            "route_id":1,
+            "route_ID":1,
             "stop_name":"R2-1",
             "stop_description":"Plaza Colon",
             "stop_latitude":16,
@@ -80,7 +80,7 @@
         },
         {
             
-            "route_id":1,
+            "route_ID":1,
             "stop_name":"R2-2",
             "stop_description":"Estacionamiento Luis Munoz Rivera",
             "stop_latitude":16,
@@ -88,7 +88,7 @@
         },
         {
             
-            "route_id":1,
+            "route_ID":1,
             "stop_name":"R2-3",
             "stop_description":"Boulevard Eudaldo Baez",
             "stop_latitude":16,
@@ -96,7 +96,7 @@
         },
         {
             
-            "route_id":1,
+            "route_ID":1,
             "stop_name":"R2-4",
             "stop_description":"Centro Gubernamental",
             "stop_latitude":16,
@@ -104,7 +104,7 @@
         },
         {
             
-            "route_id":1,
+            "route_ID":1,
             "stop_name":"R2-5",
             "stop_description":"Plaza del Mercado",
             "stop_latitude":16,
@@ -112,7 +112,7 @@
         },
         {
             
-            "route_id":1,
+            "route_ID":1,
             "stop_name":"R2-6",
             "stop_description":"Calle Ramon Emeterio Betances",
             "stop_latitude":16,
@@ -120,7 +120,7 @@
         },
         {
             
-            "route_id":1,
+            "route_ID":1,
             "stop_name":"R2-7",
             "stop_description":"Casa Betances",
             "stop_latitude":16,
@@ -128,7 +128,7 @@
         },
         {
             
-            "route_id":3,
+            "route_ID":3,
             "stop_name":"R3-1",
             "stop_description":"Plaza Colon",
             "stop_latitude":16,
@@ -136,7 +136,7 @@
         },
         {
             
-            "route_id":3,
+            "route_ID":3,
             "stop_name":"R3-2",
             "stop_description":"Teatro Balboa",
             "stop_latitude":16,
@@ -144,7 +144,7 @@
         },
         {
             
-            "route_id":3,
+            "route_ID":3,
             "stop_name":"R3-3",
             "stop_description":"Hotel Howard Johnson",
             "stop_latitude":16,
@@ -152,7 +152,7 @@
         },
         {
             
-            "route_id":3,
+            "route_ID":3,
             "stop_name":"R3-4",
             "stop_description":"Banco Popular",
             "stop_latitude":16,
@@ -160,7 +160,7 @@
         },
         {
             
-            "route_id":3,
+            "route_ID":3,
             "stop_name":"R3-5",
             "stop_description":"Viaducto",
             "stop_latitude":16,
@@ -168,7 +168,7 @@
         },
         {
             
-            "route_id":3,
+            "route_ID":3,
             "stop_name":"R3-6",
             "stop_description":"Correo General",
             "stop_latitude":16,
@@ -176,7 +176,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-1",
             "stop_description":"Terminal Barcelona",
             "stop_latitude":18.2045916,
@@ -184,7 +184,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-2",
             "stop_description":"Franco Farmacia Familiar",
             "stop_latitude":18.207551,
@@ -192,7 +192,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-3",
             "stop_description":"Res. Monte Isleno",
             "stop_latitude":18.212458,
@@ -200,7 +200,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-4",
             "stop_description":"Almacen Navideno",
             "stop_latitude":18.2166285,
@@ -208,7 +208,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-5",
             "stop_description":"VIllas Centroamericanas",
             "stop_latitude":18.2261317,
@@ -216,7 +216,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-6",
             "stop_description":"Urb. Quinto Cent.",
             "stop_latitude":18.2286499,
@@ -224,7 +224,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-7",
             "stop_description":"Cancha Urb. Quinto Cent.",
             "stop_latitude":18.2302043,
@@ -232,7 +232,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-8",
             "stop_description":"Carr. 64 Esq. Calle Gaviota",
             "stop_latitude":18.2345735,
@@ -240,7 +240,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-9",
             "stop_description":"Carr. 64 Esq. Calle Matildo Caban",
             "stop_latitude":18.2378686,
@@ -248,7 +248,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-10",
             "stop_description":"Carr. 64 Esq. Calle Caracol",
             "stop_latitude":18.2403227,
@@ -256,7 +256,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-11",
             "stop_description":"Parque de Pelota El Mani",
             "stop_latitude":18.2467455,
@@ -264,7 +264,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-12",
             "stop_description":"Farmacia Familiar El Mani",
             "stop_latitude":18.2403862,
@@ -272,7 +272,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-13",
             "stop_description":"Carr. 64 Matildo Caban",
             "stop_latitude":18.2378933,
@@ -280,7 +280,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-14",
             "stop_description":"Frente a Gonzalo's",
             "stop_latitude":18.2346505,
@@ -288,7 +288,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-15",
             "stop_description":"Carr. 64",
             "stop_latitude":18.228487,
@@ -296,7 +296,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-16",
             "stop_description":"John Dewey College",
             "stop_latitude":18.2264609,
@@ -304,7 +304,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-17",
             "stop_description":"Ricomini",
             "stop_latitude":18.2164441,
@@ -312,7 +312,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-18",
             "stop_description":"Puente Peatonal",
             "stop_latitude":18.212315,
@@ -320,7 +320,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-19",
             "stop_description":"Correo Playa",
             "stop_latitude":18.2062645,
@@ -328,7 +328,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-20",
             "stop_description":"Viadutos",
             "stop_latitude":18.2041487,
@@ -336,7 +336,7 @@
         },
         {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"RM-21",
             "stop_description":"Plaza Colon",
             "stop_latitude":18.201369,
@@ -344,7 +344,7 @@
         },
          {
             
-            "route_id":2,
+            "route_ID":2,
             "stop_name":"R102-1",
             "stop_description":"Terminal Barcelona",
             "stop_latitude":18.204720,
@@ -352,7 +352,7 @@
         },
         {
             
-            "route_id":4,
+            "route_ID":4,
             "stop_name":"R102-2",
             "stop_description":"Villa Pesquera",
             "stop_latitude":18.2029727,
@@ -360,7 +360,7 @@
         },
         {
             
-            "route_id":4,
+            "route_ID":4,
             "stop_name":"R102-3",
             "stop_description":"Parque Skateboard",
             "stop_latitude":18.1951212,
@@ -368,7 +368,7 @@
         },
         {
             
-            "route_id":4,
+            "route_ID":4,
             "stop_name":"R102-4",
             "stop_description":"Ramirez de Arellano",
             "stop_latitude":18.1898111,
@@ -376,7 +376,7 @@
         },
         {
             
-            "route_id":4,
+            "route_ID":4,
             "stop_name":"R102-5",
             "stop_description":"Guanajibo Homes",
             "stop_latitude":18.1762152,
@@ -384,7 +384,7 @@
         },
         {
             
-            "route_id":4,
+            "route_ID":4,
             "stop_name":"R102-6",
             "stop_description":"San Jose",
             "stop_latitude":18.1849928,
@@ -392,7 +392,7 @@
         },
         {
             
-            "route_id":4,
+            "route_ID":4,
             "stop_name":"R102-7",
             "stop_description":"Residencial Candelaria",
             "stop_latitude":18.1962703,
@@ -400,7 +400,7 @@
         },
         {
             
-            "route_id":4,
+            "route_ID":4,
             "stop_name":"R102-8",
             "stop_description":"Conector Nenadich",
             "stop_latitude":16,
@@ -408,7 +408,7 @@
         },
         {
             
-            "route_id":4,
+            "route_ID":4,
             "stop_name":"R102-9",
             "stop_description":"Benigno Contreras",
             "stop_latitude":18.204513,
@@ -416,7 +416,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-1",
             "stop_description":"Terminal Barcelona",
             "stop_latitude":18.2047202,
@@ -424,7 +424,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-2",
             "stop_description":"Calle San Ignacio",
             "stop_latitude":18.1993608,
@@ -432,7 +432,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-3",
             "stop_description":"Villa Angelica",
             "stop_latitude":18.1993396,
@@ -440,7 +440,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-4",
             "stop_description":"Calle Canteera",
             "stop_latitude":18.1975908,
@@ -448,7 +448,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-5",
             "stop_description":"Panaderia Wesley",
             "stop_latitude":18.1940445,
@@ -457,7 +457,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-6",
             "stop_description":"Urb. Pura Brisa",
             "stop_latitude":18.199061,
@@ -465,21 +465,21 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-7",
             "stop_description":"Camino Juan Alonso",
             "stop_latitude":18.1997327,
             "stop_longitude":-67.1016218
         },
         {
-            "route_id":5,"stop_name":"R105-8",
+            "route_ID":5,"stop_name":"R105-8",
             "stop_description":"Camino Julio Perez",
             "stop_latitude":18.1960308,
             "stop_longitude":-67.093459
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-9",
             "stop_description":"Camino Los Lazos",
             "stop_latitude":18.1890642,
@@ -487,7 +487,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-10",
             "stop_description":"Camino Los Aleluya",
             "stop_latitude":18.1870395,
@@ -495,7 +495,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-11",
             "stop_description":"Km 10 INT 339",
             "stop_latitude":18.1879735,
@@ -503,7 +503,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-12",
             "stop_description":"Escuela",
             "stop_latitude":18.1899648,
@@ -511,7 +511,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-13",
             "stop_description":"Camino Cambalache",
             "stop_latitude":18.1925591,
@@ -519,7 +519,7 @@
         },
         {
             
-            "route_id":5,
+            "route_ID":5,
             "stop_name":"R105-14",
             "stop_description":"Cancha Rolon",
             "stop_latitude":18.194131,
@@ -528,7 +528,7 @@
 
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-1",
             "stop_description":"Terminal Barcelona",
             "stop_latitude":18.2046798,
@@ -536,7 +536,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-2",
             "stop_description":"Terminal Balboa",
             "stop_latitude":18.2016512,
@@ -544,7 +544,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-3",
             "stop_description":"Fabricas Sector La Quinta",
             "stop_latitude":18.2078219,
@@ -552,7 +552,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-4",
             "stop_description":"Urb. Flor Del Valle",
             "stop_latitude":18.2086811,
@@ -560,7 +560,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-5",
             "stop_description":"Antillian College",
             "stop_latitude":18.2087796,
@@ -568,7 +568,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-6",
             "stop_description":"Vista Monte",
             "stop_latitude":18.2092272,
@@ -576,7 +576,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-7",
             "stop_description":"INT Carr. 352",
             "stop_latitude":18.2107361,
@@ -584,7 +584,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-8",
             "stop_description":"INT Carr. 3956",
             "stop_latitude":18.2075951,
@@ -592,7 +592,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-9",
             "stop_description":"INT 354",
             "stop_latitude":18.21462,
@@ -600,7 +600,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-10",
             "stop_description":"KM 10.3 Calle Luis Pruna",
             "stop_latitude":18.2114675,
@@ -608,7 +608,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-11",
             "stop_description":"Naranjales Service Station",
             "stop_latitude":18.2083825,
@@ -616,7 +616,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-12",
             "stop_description":"Las Carmelitas",
             "stop_latitude":18.2099549,
@@ -624,7 +624,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-13",
             "stop_description":"Camino Los Soler",
             "stop_latitude":18.2108835,
@@ -632,7 +632,7 @@
         },
         {
             
-            "route_id":6,
+            "route_ID":6,
             "stop_name":"R106-14",
             "stop_description":"Escuela El Consumo",
             "stop_latitude":18.2088187,
@@ -641,7 +641,7 @@
 
          {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-1",
             "stop_description":"Terminal Barcelona",
             "stop_latitude":18.2047609,
@@ -649,7 +649,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-2",
             "stop_description":"Edificio Biologia RUM",
             "stop_latitude":18.2113415,
@@ -657,7 +657,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-3",
             "stop_description":"Porton Ingenieria RUM",
             "stop_latitude":18.214144,
@@ -665,7 +665,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-4",
             "stop_description":"Urb. Las Hortencias",
             "stop_latitude":18.2227383,
@@ -673,7 +673,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-5",
             "stop_description":"Cond. El Pabellon",
             "stop_latitude":18.2272401,
@@ -681,7 +681,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-6",
             "stop_description":"INT Carr. 342",
             "stop_latitude":18.2338899,
@@ -689,7 +689,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-7",
             "stop_description":"Urb. El Retiro",
             "stop_latitude":18.2393011,
@@ -697,7 +697,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-8",
             "stop_description":"Puente Leguisamo",
             "stop_latitude":18.2418341,
@@ -705,7 +705,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-9",
             "stop_description":"Sector Botoyo",
             "stop_latitude":18.247482,
@@ -713,7 +713,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-10",
             "stop_description":"INT Carr. 430",
             "stop_latitude":18.2519499,
@@ -721,7 +721,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-11",
             "stop_description":"Camino Meliton Rivera",
             "stop_latitude":18.2509472,
@@ -729,7 +729,7 @@
         },
         {
             
-            "route_id":7,
+            "route_ID":7,
             "stop_name":"R108-12",
             "stop_description":"INT Carr. 52",
             "stop_latitude":18.2425228,
@@ -737,7 +737,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-1",
             "stop_description":"Terminal Barcelona",
             "stop_latitude":18.2047414,
@@ -745,7 +745,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-2",
             "stop_description":"Cuesta Las Piedras",
             "stop_latitude":18.1854729,
@@ -753,7 +753,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-3",
             "stop_description":"Gallera La Candelaria",
             "stop_latitude":18.184253,
@@ -761,7 +761,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-4",
             "stop_description":"Cementerio Mayaguez Memorial",
             "stop_latitude":18.1785996,
@@ -769,7 +769,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-5",
             "stop_description":"Calle Jose Antonio Figueroa",
             "stop_latitude":18.1727473,
@@ -777,7 +777,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-6",
             "stop_description":"INT 380",
             "stop_latitude":18.1676239,
@@ -785,7 +785,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-7",
             "stop_description":"Camino Luisa Rodriguez",
             "stop_latitude":18.1701906,
@@ -793,7 +793,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-8",
             "stop_description":"Terraza de Mike",
             "stop_latitude":18.1685496,
@@ -801,7 +801,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-9",
             "stop_description":"Villas del Rosario",
             "stop_latitude":18.1680947,
@@ -809,7 +809,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-10",
             "stop_description":"Cruz Monte Km 7.2",
             "stop_latitude":18.1654251,
@@ -817,7 +817,7 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-11",
             "stop_description":"Camino Segundino Rodriguez",
             "stop_latitude":18.162095,
@@ -825,14 +825,14 @@
         },
         {
             
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-12",
             "stop_description":"Puente Rosario",
             "stop_latitude":18.1581856,
             "stop_longitude":-67.0856879
         },
         {
-            "route_id":8,
+            "route_ID":8,
             "stop_name":"R348-13",
             "stop_description":"Plaza Colon",
             "stop_latitude":18.2013257,

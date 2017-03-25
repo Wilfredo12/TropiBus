@@ -17,7 +17,8 @@ export class MapOverviewPage {
   routes:any;
   stops:any;
   tempRoute:any;
- 
+  locationMarker:any;
+  polylinePaths:any;
   constructor(public navCtrl: NavController,public routes_stops_service:RoutesStopsService, public alertCtrl:AlertController) {
     
     
@@ -27,6 +28,8 @@ export class MapOverviewPage {
   ngOnInit(){
     //checkInternet connection
     this.loadMap();
+    this.routes=[]
+    this.polylinePaths=[]
     //this.loadRoutes();
     //this.loadStops();
   }
@@ -34,8 +37,7 @@ export class MapOverviewPage {
   loadMap(){
  
     //Geolocation.getCurrentPosition().then((myposition) => {
- 
-      let latLng = new google.maps.LatLng(18.2096651, -67.14775279999999);
+      let latLng = new google.maps.LatLng(18.2013257,-67.1392801);
       console.log(latLng);
       
       let mapOptions = {
@@ -47,20 +49,15 @@ export class MapOverviewPage {
  
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
-      let marker = new google.maps.Marker({
-            map: this.map,
-            animation: google.maps.Animation.DROP,
-            position: latLng
-        })
-      let content= "<h4>Your location</h4>"
-      this.addInfoWindow(marker,content)
+      // let marker = new google.maps.Marker({
+      //       map: this.map,
+      //       animation: google.maps.Animation.DROP,
+      //       position: latLng
+      //   })
+      // let content= "<h4>Your location</h4>"
+      // this.addInfoWindow(marker,content)
       this.getRoutes();
-      this.getStops();
- 
-    // }, (err) => {
-    //   console.log(err);
-    // });
-  
+    
   }
 
   getRoutes(){
@@ -76,22 +73,26 @@ export class MapOverviewPage {
         this.loadStops();
         console.log(response)
   })
-  }
+}
+
   loadRoutes(){
 
     for(var i=0;i<this.routes.length;i++){
-      var route=this.routes[i];
-      console.log(route)
-      var polyline = new google.maps.Polyline({
-          map: this.map,
-          path: route.path,
-          strokeColor: route.color,
-          strokeOpacity: 1.0,
-          strokeWeight: 3
-        });
-        let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
-        this.addInfoWindowRoutes(polyline,content)
-    }
+        var route=this.routes[i];
+        if(route.route_area=="city"){
+          console.log(route)
+          var polyline = new google.maps.Polyline({
+              map: this.map,
+              path: route.path,
+              strokeColor: route.color,
+              strokeOpacity: 1.0,
+              strokeWeight: 3
+            });
+            let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
+            this.addInfoWindowRoutes(polyline,content)
+            this.polylinePaths.push(polyline)
+        }
+      }
   }
   
   loadStops(){
@@ -107,18 +108,78 @@ export class MapOverviewPage {
       this.addInfoWindow(stop_marker,content)
     }
   }
+
+  city(){
+      this.map.panTo(new google.maps.LatLng(18.2013257,-67.1392801));
+      for(var i=0;i<this.polylinePaths.length;i++){
+      this.polylinePaths[i].setMap(null);
+    }
+    this.polylinePaths=[]
+    this.loadRoutes()
+  }
+
+  rural(){
+    this.map.panTo(new google.maps.LatLng(18.2047609,-67.1385972));
+    for(var i=0;i<this.polylinePaths.length;i++){
+      this.polylinePaths[i].setMap(null);
+    }
+    this.polylinePaths=[]
+    for(var i=0;i<this.routes.length;i++){
+        var route=this.routes[i];
+        if(route.route_area=="rural"){
+          console.log(route)
+          var polyline = new google.maps.Polyline({
+              map: this.map,
+              path: route.path,
+              strokeColor: route.color,
+              strokeOpacity: 1.0,
+              strokeWeight: 3
+            });
+            let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
+            this.addInfoWindowRoutes(polyline,content)
+            this.polylinePaths.push(polyline)
+        }
+      }
+
+  }
+
+  litoral(){
+    this.map.panTo(new google.maps.LatLng(18.2047609,-67.1385972));
+    for(var i=0;i<this.polylinePaths.length;i++){
+      this.polylinePaths[i].setMap(null);
+    }
+    this.polylinePaths=[]
+    for(var i=0;i<this.routes.length;i++){
+        var route=this.routes[i];
+        if(route.route_area=="litoral"){
+          console.log(route)
+          var polyline = new google.maps.Polyline({
+              map: this.map,
+              path: route.path,
+              strokeColor: route.color,
+              strokeOpacity: 1.0,
+              strokeWeight: 3
+            });
+            let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
+            this.addInfoWindowRoutes(polyline,content)
+            this.polylinePaths.push(polyline)
+        }
+      }
+  }
   myLocation(){
-    
+    if(this.locationMarker!=null){
+      this.locationMarker.setMap(null);
+    }
     Geolocation.getCurrentPosition().then((myposition) => {
         let latLng = new google.maps.LatLng(myposition.coords.latitude, myposition.coords.longitude);
-        let marker = new google.maps.Marker({
+        this.locationMarker = new google.maps.Marker({
           map: this.map,
           animation: google.maps.Animation.DROP,
           position: latLng
         });
         let content = "<h4>Your Location!</h4>"; 
         //anadir que abra infowindow o boton         
-        this.addInfoWindow(marker, content);
+        this.addInfoWindow(this.locationMarker, content);
         this.map.panTo(latLng);
        }, (err) => {
          let alert = this.alertCtrl.create({
@@ -130,20 +191,6 @@ export class MapOverviewPage {
           console.log(err);
     });
   }
-
-//   addMarker(){
- 
-//   let marker = new google.maps.Marker({
-//     map: this.map,
-//     animation: google.maps.Animation.DROP,
-//     position: this.map.getCenter()
-//   });
- 
-//   let content = "<h4>Information!</h4>";          
- 
-//   this.addInfoWindow(marker, content);
- 
-// }
 addInfoWindow(item,content){
   let infowindow = new google.maps.InfoWindow({
     content: content
