@@ -154,21 +154,25 @@ getShortestDistance(lat,lng){
   }
   return closestCoordinates;
 }
+//harvesine formula is use to calculate the distance of two points on the sphere 
+//using the latitudes and longitudes of the points
 harvesineFormula(lat1,lon1,lat2,lon2){
+  //phi is latitude
+  //lambda are longitudes
   var R = 6371e3; // metres
-  var φ1 = this.toRad(lat1);
-  var φ2 = this.toRad(lat2);
-  var Δφ = this.toRad(lat2-lat1);
-  var Δλ = this.toRad(lon2-lon1);
+  var phi1 = this.toRad(lat1);
+  var phi2 = this.toRad(lat2);
+  var delta_phi = this.toRad(lat2-lat1);
+  var delta_lambda = this.toRad(lon2-lon1);
 
-  var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-          Math.cos(φ1) * Math.cos(φ2) *
-          Math.sin(Δλ/2) * Math.sin(Δλ/2);
+  var a = Math.sin(delta_phi/2) * Math.sin(delta_phi/2) +
+          Math.cos(phi1) * Math.cos(phi2) *
+          Math.sin(delta_lambda/2) * Math.sin(delta_lambda/2);
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
-  var d = R * c;
-  console.log(d)
-  return d
+  var distance = R * c;
+  console.log(distance)
+  return distance
 }
 toRad(degrees) {
     return degrees * Math.PI / 180;

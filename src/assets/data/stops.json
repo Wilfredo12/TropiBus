@@ -415,6 +415,13 @@
             "stop_latitude":18.204513,
             "stop_longitude":-67.1518575
         },
+        {            
+            "route_ID":4,
+            "stop_name":"R102-10",
+            "stop_description":"Plaza Colon",
+            "stop_latitude":18.2013257,
+            "stop_longitude":-67.1392801
+        },
         {
             
             "route_ID":5,
