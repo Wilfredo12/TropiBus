@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
-import {Geolocation} from 'ionic-native';
+import {Geolocation,Network} from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
 //import { ConnectivityService } from '../../providers/connectivity-service';
 
@@ -27,6 +27,7 @@ export class MapOverviewPage {
  
   ngOnInit(){
     //checkInternet connection
+    this.checkInternetConnection();
     this.loadMap();
     this.routes=[]
     this.polylinePaths=[]
@@ -254,5 +255,31 @@ addInfoWindowRoutes(item, content){
 
   });
  
+}
+checkInternetConnection(){
+  console.log("estoy chequiando internet")
+  // watch network for a disconnect
+let disconnectSubscription = Network.onDisconnect().subscribe(() => {
+  console.log('network was disconnected :-(');
+});
+
+// stop disconnect watch
+disconnectSubscription.unsubscribe();
+
+
+// watch network for a connection
+let connectSubscription = Network.onConnect().subscribe(() => {
+  console.log('network connected!');
+  // We just got a connection but we need to wait briefly
+   // before we determine the connection type.  Might need to wait 
+  // prior to doing any api requests as well.
+  setTimeout(() => {
+    if (Network.type === 'wifi') {
+      console.log('we got a wifi connection, woohoo!');
+    }
+  }, 3000);
+});
+connectSubscription.unsubscribe();
+// // stop connect watch
 }
 }
