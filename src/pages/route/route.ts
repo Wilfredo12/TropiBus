@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
 
+
 declare var google;
 
 @Component({
@@ -30,7 +31,7 @@ export class RoutePage {
     // {id:3,name: "Stop 4",description:"Palomino",lat:-34.9601,lng:138.6111},
     //  {id:4,name: "Stop 5",description:"Perra",lat:-34.9611,lng:138.6111}
     // ];
-
+    
     //meterle el objecto de routes y stops
     this.stops=[]
     this.loadMap();
@@ -38,10 +39,8 @@ export class RoutePage {
 
   loadMap(){
 
-      let latLng = new google.maps.LatLng(this.route.path[0].lat,this.route.path[0].lng);
-      console.log(latLng);
       let mapOptions = {
-        center: latLng,
+        // center: latLng,
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         disableDefaultUI: true
@@ -61,11 +60,11 @@ export class RoutePage {
             this.stops.push(tempstops[i])
           }
         }
+        this.centerMap(this.stops[0].stop_latitude,this.stops[0].stop_longitude);
         this.loadStops();
   })
 }
-
-  loadRoute(){
+loadRoute(){
     var polyline = new google.maps.Polyline({
           map: this.map,
           path: this.route.path,
@@ -76,7 +75,7 @@ export class RoutePage {
         let content= "<h4>"+this.route.route_name+"</h4><p>"+this.route.route_description+"</p>"
         this.addInfoWindow(polyline,content)
   }
-  loadStops(){
+loadStops(){
     
     for(var i=0;i<this.stops.length;i++){        
         let marker = new google.maps.Marker({
@@ -93,9 +92,12 @@ export class RoutePage {
     }
   
 }
-
+centerMap(lat,lng){
+   let latLng = new google.maps.LatLng(lat,lng);
+   this.map.setCenter(latLng);
+}
 centerStop(stop){
-
+  //todo highlight stop
     this.map.panTo(new google.maps.LatLng(stop.stop_latitude,stop.stop_longitude));
 }
 
@@ -105,8 +107,8 @@ nearbyStop(){
       this.nearbyStopMarker.setMap(null);
     }
     Geolocation.getCurrentPosition().then((myposition) => {
-        let latitude=18.2047609;
-        let longitude=-67.1385972;
+        let latitude=myposition.coords.latitude;
+        let longitude=myposition.coords.longitude;
         // let latitude=myposition.coords.latitude;
         // let longitude=myposition.coords.longitude;
         let latLng = new google.maps.LatLng(latitude, longitude);
@@ -134,13 +136,7 @@ nearbyStop(){
 
         this.map.panTo(nearbyLatLng);
        }, (err) => {
-         let alert = this.alertCtrl.create({
-            title: 'Location not enable',
-            subTitle: 'Please go to location settings and enable location',
-            buttons: ['Dismiss']
-          });
-          alert.present();
-          console.log(err);
+         this.presentAlert('Location not enable','Please go to location settings and enable location')
     });
  
 }
@@ -198,7 +194,14 @@ addInfoWindow(item, content){
             });
 
   });
-  }
-
+}
+presentAlert(title,subTitle){
+let alert = this.alertCtrl.create({
+                title: title,
+                subTitle: subTitle,
+                buttons: ['Dismiss']
+              });
+              alert.present();
+}
 
 }

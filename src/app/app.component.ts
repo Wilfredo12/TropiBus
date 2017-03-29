@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-import {RedditService} from './services/reddits.service';
+
 import { TabsPage } from '../pages/tabs/tabs';
 import { RoutesStopsService } from '../providers/routes-stops-service';
 import { Messages } from '../providers/messages';
@@ -10,7 +10,7 @@ import { Messages } from '../providers/messages';
 
 @Component({
   templateUrl: 'app.html',
-  providers: [RedditService,RoutesStopsService,Messages]
+  providers: [RoutesStopsService,Messages]
 })
 export class MyApp {
   rootPage = TabsPage;
