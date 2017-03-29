@@ -4,175 +4,175 @@
             "route_ID":0,
             "stop_name":"R1-1",
             "stop_description":"Alcaldia",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.201508, 
+            "stop_longitude":-67.139479
         },
          {
             "route_ID":0,
             "stop_name":"R1-2",
             "stop_description":"Balboa, frente a Mr. Special",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.202284, 
+            "stop_longitude":-67.134425
         },
          {
             
             "route_ID":0,
             "stop_name":"R1-3",
             "stop_description":"Balboa, frente a Garaje Toro",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.204071, 
+            "stop_longitude":-67.132449
         },
          {
             
             "route_ID":0,
             "stop_name":"R1-4",
             "stop_description":"Palacio Recreacion y Deportes, Wilkins",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.206467, 
+            "stop_longitude":-67.136037
         },
          {
             
             "route_ID":0,
             "stop_name":"R1-5",
             "stop_description":"RUM - Calle Pinos",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.214014, 
+            "stop_longitude":-67.141559
         },
          {
             
             "route_ID":0,
             "stop_name":"R1-6",
             "stop_description":"RUM Calle Las Palmeras",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.211262, 
+            "stop_longitude":-67.140797
         },
          {
             
             "route_ID":0,
             "stop_name":"R1-7",
             "stop_description":"RUM - Calle Los Caobos",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.209003, 
+            "stop_longitude":-67.140298
         },
          {
             
             "route_ID":0,
             "stop_name":"R1-8",
             "stop_description":"Calle Martinez Nadal frente a Palacio",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.206221, 
+            "stop_longitude":-67.137213
         },
          {
             
             "route_ID":0,
             "stop_name":"R1-9",
             "stop_description":"Calle Martinez Nadal frente a Parque Proceres",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.205277, 
+            "stop_longitude":-67.137272
         },
         {
             
             "route_ID":1,
             "stop_name":"R2-1",
             "stop_description":"Plaza Colon",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.201369,
+            "stop_longitude":-67.1395037
         },
         {
             
             "route_ID":1,
             "stop_name":"R2-2",
             "stop_description":"Estacionamiento Luis Munoz Rivera",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.199524, 
+            "stop_longitude":-67.139097
         },
         {
             
             "route_ID":1,
             "stop_name":"R2-3",
             "stop_description":"Boulevard Eudaldo Baez",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.197032, 
+            "stop_longitude":-67.141200
         },
         {
             
             "route_ID":1,
             "stop_name":"R2-4",
             "stop_description":"Centro Gubernamental",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.197758, 
+            "stop_longitude":-67.144580
         },
         {
             
             "route_ID":1,
             "stop_name":"R2-5",
             "stop_description":"Plaza del Mercado",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.199985, 
+            "stop_longitude":-67.143284
         },
         {
             
             "route_ID":1,
             "stop_name":"R2-6",
             "stop_description":"Calle Ramon Emeterio Betances",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.197790, 
+            "stop_longitude":-67.141608
         },
         {
             
             "route_ID":1,
             "stop_name":"R2-7",
             "stop_description":"Casa Betances",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.200789, 
+            "stop_longitude":-67.140903
         },
         {
             
             "route_ID":3,
             "stop_name":"R3-1",
             "stop_description":"Plaza Colon",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.201369,
+            "stop_longitude":-67.1395037
         },
         {
             
             "route_ID":3,
             "stop_name":"R3-2",
             "stop_description":"Teatro Balboa",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.201598, 
+            "stop_longitude":-67.135612
         },
         {
             
             "route_ID":3,
             "stop_name":"R3-3",
             "stop_description":"Hotel Howard Johnson",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.201680, 
+            "stop_longitude":-67.138539
         },
         {
             
             "route_ID":3,
             "stop_name":"R3-4",
             "stop_description":"Banco Popular",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.201891, 
+            "stop_longitude":-67.141774
         },
         {
             
             "route_ID":3,
             "stop_name":"R3-5",
             "stop_description":"Viaducto",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.204502, 
+            "stop_longitude":-67.146454
         },
         {
             
             "route_ID":3,
             "stop_name":"R3-6",
             "stop_description":"Correo General",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.201590, 
+            "stop_longitude":-67.143550
         },
         {
             
@@ -344,7 +344,7 @@
         },
          {
             
-            "route_ID":2,
+            "route_ID":4,
             "stop_name":"R102-1",
             "stop_description":"Terminal Barcelona",
             "stop_latitude":18.204720,
@@ -403,8 +403,9 @@
             "route_ID":4,
             "stop_name":"R102-8",
             "stop_description":"Conector Nenadich",
-            "stop_latitude":16,
-            "stop_longitude":18
+            "stop_latitude":18.2000223,
+            "stop_longitude":-67.1524746
+
         },
         {
             
