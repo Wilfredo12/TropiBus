@@ -8,8 +8,10 @@ import { Messages } from '../../providers/messages';
 export class AboutPage {
   messages:any;
   constructor(public navCtrl: NavController,public messageService:Messages) {
+    //when initialized called get messages
     this.getMessages();
   }
+  //method to ge all the messages from the backend
   getMessages(){
     this.messageService.getMessages().subscribe(response =>{
         this.messages=response.messages;
