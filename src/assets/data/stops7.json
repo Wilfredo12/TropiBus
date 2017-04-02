@@ -1,0 +1,100 @@
+{
+    "stops":[
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-1",
+            "stop_description":"Terminal Barcelona",
+            "stop_latitude":18.2047609,
+            "stop_longitude":-67.1385972
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-2",
+            "stop_description":"Edificio Biologia RUM",
+            "stop_latitude":18.2113415,
+            "stop_longitude":-67.1383256
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-3",
+            "stop_description":"Porton Ingenieria RUM",
+            "stop_latitude":18.214144,
+            "stop_longitude":-67.140992
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-4",
+            "stop_description":"Urb. Las Hortencias",
+            "stop_latitude":18.2227383,
+            "stop_longitude":-67.140775
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-5",
+            "stop_description":"Cond. El Pabellon",
+            "stop_latitude":18.2272401,
+            "stop_longitude":-67.13803
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-6",
+            "stop_description":"INT Carr. 342",
+            "stop_latitude":18.2338899,
+            "stop_longitude":-67.1315828
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-7",
+            "stop_description":"Urb. El Retiro",
+            "stop_latitude":18.2393011,
+            "stop_longitude":-67.1232283
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-8",
+            "stop_description":"Puente Leguisamo",
+            "stop_latitude":18.2418341,
+            "stop_longitude":-67.1203475
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-9",
+            "stop_description":"Sector Botoyo",
+            "stop_latitude":18.247482,
+            "stop_longitude":-67.114548
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-10",
+            "stop_description":"INT Carr. 430",
+            "stop_latitude":18.2519499,
+            "stop_longitude":-67.1077494
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-11",
+            "stop_description":"Camino Meliton Rivera",
+            "stop_latitude":18.2509472,
+            "stop_longitude":-67.0956888
+        },
+        {
+            
+            "route_ID":7,
+            "stop_name":"R108-12",
+            "stop_description":"INT Carr. 52",
+            "stop_latitude":18.2425228,
+            "stop_longitude":-67.0842832
+        }
+    ]
+}

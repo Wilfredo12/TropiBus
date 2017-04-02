@@ -1,0 +1,74 @@
+
+{
+    "stops":[
+        {            
+            "route_ID":0,
+            "stop_name":"R1-1",
+            "stop_description":"Alcaldia",
+            "stop_latitude":18.201508, 
+            "stop_longitude":-67.139479
+        },
+         {
+            "route_ID":0,
+            "stop_name":"R1-2",
+            "stop_description":"Balboa, frente a Mr. Special",
+            "stop_latitude":18.202284, 
+            "stop_longitude":-67.134425
+        },
+         {
+            
+            "route_ID":0,
+            "stop_name":"R1-3",
+            "stop_description":"Balboa, frente a Garaje Toro",
+            "stop_latitude":18.204071, 
+            "stop_longitude":-67.132449
+        },
+         {
+            
+            "route_ID":0,
+            "stop_name":"R1-4",
+            "stop_description":"Palacio Recreacion y Deportes, Wilkins",
+            "stop_latitude":18.206467, 
+            "stop_longitude":-67.136037
+        },
+         {
+            
+            "route_ID":0,
+            "stop_name":"R1-5",
+            "stop_description":"RUM - Calle Pinos",
+            "stop_latitude":18.214014, 
+            "stop_longitude":-67.141559
+        },
+         {
+            
+            "route_ID":0,
+            "stop_name":"R1-6",
+            "stop_description":"RUM Calle Las Palmeras",
+            "stop_latitude":18.211262, 
+            "stop_longitude":-67.140797
+        },
+         {
+            
+            "route_ID":0,
+            "stop_name":"R1-7",
+            "stop_description":"RUM - Calle Los Caobos",
+            "stop_latitude":18.209003, 
+            "stop_longitude":-67.140298
+        },
+         {
+            
+            "route_ID":0,
+            "stop_name":"R1-8",
+            "stop_description":"Calle Martinez Nadal frente a Palacio",
+            "stop_latitude":18.206221, 
+            "stop_longitude":-67.137213
+        },
+         {
+            
+            "route_ID":0,
+            "stop_name":"R1-9",
+            "stop_description":"Calle Martinez Nadal frente a Parque Proceres",
+            "stop_latitude":18.205277, 
+            "stop_longitude":-67.137272
+        }]
+}

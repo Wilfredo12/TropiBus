@@ -1,0 +1,107 @@
+{
+    "stops":[
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-1",
+            "stop_description":"Terminal Barcelona",
+            "stop_latitude":18.2047414,
+            "stop_longitude":-67.1384667
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-2",
+            "stop_description":"Cuesta Las Piedras",
+            "stop_latitude":18.1854729,
+            "stop_longitude":-67.1422976
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-3",
+            "stop_description":"Gallera La Candelaria",
+            "stop_latitude":18.184253,
+            "stop_longitude":-67.1348334
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-4",
+            "stop_description":"Cementerio Mayaguez Memorial",
+            "stop_latitude":18.1785996,
+            "stop_longitude":-67.130795
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-5",
+            "stop_description":"Calle Jose Antonio Figueroa",
+            "stop_latitude":18.1727473,
+            "stop_longitude":-67.1252002
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-6",
+            "stop_description":"INT 380",
+            "stop_latitude":18.1676239,
+            "stop_longitude":-67.1195954
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-7",
+            "stop_description":"Camino Luisa Rodriguez",
+            "stop_latitude":18.1701906,
+            "stop_longitude":-67.1092647
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-8",
+            "stop_description":"Terraza de Mike",
+            "stop_latitude":18.1685496,
+            "stop_longitude":-67.103859
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-9",
+            "stop_description":"Villas del Rosario",
+            "stop_latitude":18.1680947,
+            "stop_longitude":-67.0989067
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-10",
+            "stop_description":"Cruz Monte Km 7.2",
+            "stop_latitude":18.1654251,
+            "stop_longitude":-67.0945903
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-11",
+            "stop_description":"Camino Segundino Rodriguez",
+            "stop_latitude":18.162095,
+            "stop_longitude":-67.08993
+        },
+        {
+            
+            "route_ID":8,
+            "stop_name":"R348-12",
+            "stop_description":"Puente Rosario",
+            "stop_latitude":18.1581856,
+            "stop_longitude":-67.0856879
+        },
+        {
+            "route_ID":8,
+            "stop_name":"R348-13",
+            "stop_description":"Plaza Colon",
+            "stop_latitude":18.2013257,
+            "stop_longitude":-67.1392801
+        }
+    ]
+}

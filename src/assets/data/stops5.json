@@ -1,0 +1,115 @@
+{
+    "stops":[
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-1",
+            "stop_description":"Terminal Barcelona",
+            "stop_latitude":18.2047202,
+            "stop_longitude":-67.1388703
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-2",
+            "stop_description":"Calle San Ignacio",
+            "stop_latitude":18.1993608,
+            "stop_longitude":-67.1339641
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-3",
+            "stop_description":"Villa Angelica",
+            "stop_latitude":18.1993396,
+            "stop_longitude":-67.1308804
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-4",
+            "stop_description":"Calle Canteera",
+            "stop_latitude":18.1975908,
+            "stop_longitude":-67.1240135
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-5",
+            "stop_description":"Panaderia Wesley",
+            "stop_latitude":18.1940445,
+            "stop_longitude":-67.114562
+
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-6",
+            "stop_description":"Urb. Pura Brisa",
+            "stop_latitude":18.199061,
+            "stop_longitude":-67.104765
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-7",
+            "stop_description":"Camino Juan Alonso",
+            "stop_latitude":18.1997327,
+            "stop_longitude":-67.1016218
+        },
+        {
+            "route_ID":5,"stop_name":"R105-8",
+            "stop_description":"Camino Julio Perez",
+            "stop_latitude":18.1960308,
+            "stop_longitude":-67.093459
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-9",
+            "stop_description":"Camino Los Lazos",
+            "stop_latitude":18.1890642,
+            "stop_longitude":-67.0821533
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-10",
+            "stop_description":"Camino Los Aleluya",
+            "stop_latitude":18.1870395,
+            "stop_longitude":-67.072576
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-11",
+            "stop_description":"Km 10 INT 339",
+            "stop_latitude":18.1879735,
+            "stop_longitude":-67.0654538
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-12",
+            "stop_description":"Escuela",
+            "stop_latitude":18.1899648,
+            "stop_longitude":-67.0620463
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-13",
+            "stop_description":"Camino Cambalache",
+            "stop_latitude":18.1925591,
+            "stop_longitude":-67.0500201
+        },
+        {
+            
+            "route_ID":5,
+            "stop_name":"R105-14",
+            "stop_description":"Cancha Rolon",
+            "stop_latitude":18.194131,
+            "stop_longitude":-67.043876
+        }
+    ]
+}

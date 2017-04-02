@@ -1,0 +1,84 @@
+{
+    "stops":[
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-1",
+            "stop_description":"Terminal Barcelona",
+            "stop_latitude":18.204720,
+            "stop_longitude":-67.1388703
+        },
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-2",
+            "stop_description":"Villa Pesquera",
+            "stop_latitude":18.2029727,
+            "stop_longitude":-67.1523936
+        },
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-3",
+            "stop_description":"Parque Skateboard",
+            "stop_latitude":18.1951212,
+            "stop_longitude":-67.1547863
+        },
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-4",
+            "stop_description":"Ramirez de Arellano",
+            "stop_latitude":18.1898111,
+            "stop_longitude":-67.1589461
+        },
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-5",
+            "stop_description":"Guanajibo Homes",
+            "stop_latitude":18.1762152,
+            "stop_longitude":-67.1731883
+        },
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-6",
+            "stop_description":"San Jose",
+            "stop_latitude":18.1849928,
+            "stop_longitude":-67.1663614
+        },
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-7",
+            "stop_description":"Residencial Candelaria",
+            "stop_latitude":18.1962703,
+            "stop_longitude":-67.1539123
+        },
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-8",
+            "stop_description":"Conector Nenadich",
+            "stop_latitude":18.2000223,
+            "stop_longitude":-67.1524746
+
+        },
+        {
+            
+            "route_ID":4,
+            "stop_name":"R102-9",
+            "stop_description":"Benigno Contreras",
+            "stop_latitude":18.204513,
+            "stop_longitude":-67.1518575
+        },
+        {            
+            "route_ID":4,
+            "stop_name":"R102-10",
+            "stop_description":"Plaza Colon",
+            "stop_latitude":18.2013257,
+            "stop_longitude":-67.1392801
+        }
+    ]
+}

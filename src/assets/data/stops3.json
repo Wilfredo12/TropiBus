@@ -1,0 +1,52 @@
+{
+    "stops":[
+        {
+            
+            "route_ID":3,
+            "stop_name":"R3-1",
+            "stop_description":"Plaza Colon",
+            "stop_latitude":18.201369,
+            "stop_longitude":-67.1395037
+        },
+        {
+            
+            "route_ID":3,
+            "stop_name":"R3-2",
+            "stop_description":"Teatro Balboa",
+            "stop_latitude":18.201598, 
+            "stop_longitude":-67.135612
+        },
+        {
+            
+            "route_ID":3,
+            "stop_name":"R3-3",
+            "stop_description":"Hotel Howard Johnson",
+            "stop_latitude":18.201680, 
+            "stop_longitude":-67.138539
+        },
+        {
+            
+            "route_ID":3,
+            "stop_name":"R3-4",
+            "stop_description":"Banco Popular",
+            "stop_latitude":18.201891, 
+            "stop_longitude":-67.141774
+        },
+        {
+            
+            "route_ID":3,
+            "stop_name":"R3-5",
+            "stop_description":"Viaducto",
+            "stop_latitude":18.204502, 
+            "stop_longitude":-67.146454
+        },
+        {
+            
+            "route_ID":3,
+            "stop_name":"R3-6",
+            "stop_description":"Correo General",
+            "stop_latitude":18.201590, 
+            "stop_longitude":-67.143550
+        }
+    ]
+}

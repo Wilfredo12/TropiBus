@@ -1,0 +1,172 @@
+{
+    "stops":[
+         {
+            
+            "route_ID":2,
+            "stop_name":"RM-1",
+            "stop_description":"Terminal Barcelona",
+            "stop_latitude":18.2045916,
+            "stop_longitude":-67.1388889
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-2",
+            "stop_description":"Franco Farmacia Familiar",
+            "stop_latitude":18.207551,
+            "stop_longitude":-67.1506421
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-3",
+            "stop_description":"Res. Monte Isleno",
+            "stop_latitude":18.212458,
+            "stop_longitude":-67.1520789
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-4",
+            "stop_description":"Almacen Navideno",
+            "stop_latitude":18.2166285,
+            "stop_longitude":-67.1561968
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-5",
+            "stop_description":"VIllas Centroamericanas",
+            "stop_latitude":18.2261317,
+            "stop_longitude":-67.1668117
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-6",
+            "stop_description":"Urb. Quinto Cent.",
+            "stop_latitude":18.2286499,
+            "stop_longitude":-67.171492
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-7",
+            "stop_description":"Cancha Urb. Quinto Cent.",
+            "stop_latitude":18.2302043,
+            "stop_longitude":-67.1687648
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-8",
+            "stop_description":"Carr. 64 Esq. Calle Gaviota",
+            "stop_latitude":18.2345735,
+            "stop_longitude":-67.1725421
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-9",
+            "stop_description":"Carr. 64 Esq. Calle Matildo Caban",
+            "stop_latitude":18.2378686,
+            "stop_longitude":-67.1727531
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-10",
+            "stop_description":"Carr. 64 Esq. Calle Caracol",
+            "stop_latitude":18.2403227,
+            "stop_longitude":-67.1728816
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-11",
+            "stop_description":"Parque de Pelota El Mani",
+            "stop_latitude":18.2467455,
+            "stop_longitude":-67.1745009
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-12",
+            "stop_description":"Farmacia Familiar El Mani",
+            "stop_latitude":18.2403862,
+            "stop_longitude":-67.1730601
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-13",
+            "stop_description":"Carr. 64 Matildo Caban",
+            "stop_latitude":18.2378933,
+            "stop_longitude":-67.1729149
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-14",
+            "stop_description":"Frente a Gonzalo's",
+            "stop_latitude":18.2346505,
+            "stop_longitude":-67.1727061
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-15",
+            "stop_description":"Carr. 64",
+            "stop_latitude":18.228487,
+            "stop_longitude":-67.1716343
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-16",
+            "stop_description":"John Dewey College",
+            "stop_latitude":18.2264609,
+            "stop_longitude":-67.1697234
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-17",
+            "stop_description":"Ricomini",
+            "stop_latitude":18.2164441,
+            "stop_longitude":-67.1563816
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-18",
+            "stop_description":"Puente Peatonal",
+            "stop_latitude":18.212315,
+            "stop_longitude":-67.152297
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-19",
+            "stop_description":"Correo Playa",
+            "stop_latitude":18.2062645,
+            "stop_longitude":-67.1512766
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-20",
+            "stop_description":"Viadutos",
+            "stop_latitude":18.2041487,
+            "stop_longitude":-67.1468792
+        },
+        {
+            
+            "route_ID":2,
+            "stop_name":"RM-21",
+            "stop_description":"Plaza Colon",
+            "stop_latitude":18.201369,
+            "stop_longitude":-67.1395037
+        }
+    ]
+}

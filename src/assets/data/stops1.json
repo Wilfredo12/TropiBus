@@ -1,0 +1,58 @@
+{
+    "stops":[  {
+            
+            "route_ID":1,
+            "stop_name":"R2-1",
+            "stop_description":"Plaza Colon",
+            "stop_latitude":18.201369,
+            "stop_longitude":-67.1395037
+        },
+        {
+            
+            "route_ID":1,
+            "stop_name":"R2-2",
+            "stop_description":"Estacionamiento Luis Munoz Rivera",
+            "stop_latitude":18.199524, 
+            "stop_longitude":-67.139097
+        },
+        {
+            
+            "route_ID":1,
+            "stop_name":"R2-3",
+            "stop_description":"Boulevard Eudaldo Baez",
+            "stop_latitude":18.197032, 
+            "stop_longitude":-67.141200
+        },
+        {
+            
+            "route_ID":1,
+            "stop_name":"R2-4",
+            "stop_description":"Centro Gubernamental",
+            "stop_latitude":18.197758, 
+            "stop_longitude":-67.144580
+        },
+        {
+            
+            "route_ID":1,
+            "stop_name":"R2-5",
+            "stop_description":"Plaza del Mercado",
+            "stop_latitude":18.199985, 
+            "stop_longitude":-67.143284
+        },
+        {
+            
+            "route_ID":1,
+            "stop_name":"R2-6",
+            "stop_description":"Calle Ramon Emeterio Betances",
+            "stop_latitude":18.197790, 
+            "stop_longitude":-67.141608
+        },
+        {
+            
+            "route_ID":1,
+            "stop_name":"R2-7",
+            "stop_description":"Casa Betances",
+            "stop_latitude":18.200789, 
+            "stop_longitude":-67.140903
+        }]
+}

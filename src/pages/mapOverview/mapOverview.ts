@@ -48,7 +48,7 @@ loadMap(){
       this.getRoutes();
 
      //get users location if enable
-     this.myLocation()
+     //this.myLocation()
     
   }
 
@@ -211,6 +211,10 @@ loadMap(){
     if(this.locationMarker!=null){
       this.map.removeLayer(this.locationMarker);
     }
+
+    if (!Geolocation || !Geolocation.watchPosition) {
+        this.presentAlert("Location not available","Go to settings and enable location");
+      }
     //get users location
     Geolocation.getCurrentPosition().then((myposition) => {
         let latLng = {lat:myposition.coords.latitude,lng: myposition.coords.longitude};
@@ -236,7 +240,7 @@ loadMap(){
             subTitle: subtitle,
             buttons: ['Dismiss']
           });
-          alert.present();
+    alert.present();
   }
   //this function is used to set which type of routes are active
   //1 for rural area, 2 for city, and 3 for litoral area 

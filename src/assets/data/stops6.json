@@ -1,0 +1,116 @@
+{
+    "stops":[
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-1",
+            "stop_description":"Terminal Barcelona",
+            "stop_latitude":18.2046798,
+            "stop_longitude":-67.1386929
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-2",
+            "stop_description":"Terminal Balboa",
+            "stop_latitude":18.2016512,
+            "stop_longitude":-67.1348957
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-3",
+            "stop_description":"Fabricas Sector La Quinta",
+            "stop_latitude":18.2078219,
+            "stop_longitude":-67.1281333
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-4",
+            "stop_description":"Urb. Flor Del Valle",
+            "stop_latitude":18.2086811,
+            "stop_longitude":-67.123395
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-5",
+            "stop_description":"Antillian College",
+            "stop_latitude":18.2087796,
+            "stop_longitude":-67.1180251
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-6",
+            "stop_description":"Vista Monte",
+            "stop_latitude":18.2092272,
+            "stop_longitude":-67.1022486
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-7",
+            "stop_description":"INT Carr. 352",
+            "stop_latitude":18.2107361,
+            "stop_longitude":-67.0909589
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-8",
+            "stop_description":"INT Carr. 3956",
+            "stop_latitude":18.2075951,
+            "stop_longitude":-67.0782994
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-9",
+            "stop_description":"INT 354",
+            "stop_latitude":18.21462,
+            "stop_longitude":-67.074398
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-10",
+            "stop_description":"KM 10.3 Calle Luis Pruna",
+            "stop_latitude":18.2114675,
+            "stop_longitude":-67.0629479
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-11",
+            "stop_description":"Naranjales Service Station",
+            "stop_latitude":18.2083825,
+            "stop_longitude":-67.0583555
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-12",
+            "stop_description":"Las Carmelitas",
+            "stop_latitude":18.2099549,
+            "stop_longitude":-67.0519756
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-13",
+            "stop_description":"Camino Los Soler",
+            "stop_latitude":18.2108835,
+            "stop_longitude":-67.041745
+        },
+        {
+            
+            "route_ID":6,
+            "stop_name":"R106-14",
+            "stop_description":"Escuela El Consumo",
+            "stop_latitude":18.2088187,
+            "stop_longitude":-67.0322994
+        }
+    ]
+}

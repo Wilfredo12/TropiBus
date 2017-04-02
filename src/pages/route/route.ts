@@ -16,6 +16,8 @@ export class RoutePage {
   locationMarker:any=null;
   nearbyStopMarker:any=null;
   tempStopMarker:any=null;
+  busMarker:any=null;
+  count:number=0;
 
   constructor(public navCtrl: NavController, public params: NavParams, public alertCtrl:AlertController, public routes_stops_service:RoutesStopsService) {
     //get route information from constructor
@@ -42,18 +44,23 @@ export class RoutePage {
       this.loadRoute();
       this.getStops();  
  
+ if(this.route.status=="Active"){
+    this.busLocationCycle()
   }
+ }
   //method to call backend and retrieved stop information from route, once information is
   //retrieved the method will call the loadStops method
-  getStops(){
+getStops(){
     //todo usar getStops con ruta especifica
-    this.routes_stops_service.getStops().subscribe(response =>{
-        var tempstops=response.stops;
-        for(var i=0;i<tempstops.length;i++){
-          if(tempstops[i].route_ID==this.route.route_ID){
-            this.stops.push(tempstops[i])
-          }
-        }
+    this.routes_stops_service.getStopsFromRoute(this.route.route_ID).subscribe(response =>{
+        // var tempstops=response.stops;
+        // for(var i=0;i<tempstops.length;i++){
+        //   if(tempstops[i].route_ID==this.route.route_ID){
+        //     this.stops.push(tempstops[i])
+        //   }
+        // }
+        console.log(response)
+        this.stops=response.stops;
         //center map on bus stop coordinates
         //this.centerMap(this.stops[0].stop_latitude,this.stops[0].stop_longitude);
         this.loadStops();
@@ -208,6 +215,27 @@ harvesineFormula(lat1,lon1,lat2,lon2){
   console.log(distance)
   return distance
 }
+//fetch bus location every 10 seconds for now just simulation
+busLocationCycle(){
+        if(this.busMarker!=null){
+          this.map.removeLayer(this.busMarker)
+          this.busMarker=null;
+        }
+        if(this.count<=this.route.path.length){
+            let latLng = {lat:this.route.path[this.count].lat,lng:this.route.path[this.count].lng};    
+            let content = "<h4>Bus X in "+this.route.route_name+"</h4>";
+            this.busMarker=L.marker(latLng).bindPopup(content); 
+            this.map.addLayer(this.busMarker);
+            this.count=this.count+5;
+      }
+      else{
+        this.count=0
+      }
+           
+    setTimeout(()=>{
+      if(this.route.status) this.busLocationCycle();
+    },1000);
+  }
 //change from degrees to radians
 toRad(degrees) {
     return degrees * Math.PI / 180;
