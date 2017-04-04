@@ -12,7 +12,17 @@
         },
         {
             "message_id":2,
-            "message_text": "New stop added in route 1",
+            "message_text": "Close Route 102",
+            "date_added":"01/12/2017"
+        },
+         {
+            "message_id":2,
+            "message_text": "Las Justas are coming",
+            "date_added":"01/12/2017"
+        },
+         {
+            "message_id":2,
+            "message_text": "Yey",
             "date_added":"01/12/2017"
         }
     ]

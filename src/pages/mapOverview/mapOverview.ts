@@ -20,6 +20,7 @@ export class MapOverviewPage {
   polylinePaths:any;
   layer:any;
   active:number;
+  user_icon:any;
 
   constructor(public navCtrl: NavController,public routes_stops_service:RoutesStopsService, public alertCtrl:AlertController) {
     
@@ -27,6 +28,12 @@ export class MapOverviewPage {
 //method that runs when page is intialized
 ngOnInit(){
     //todo checkInternet connection
+    this.user_icon = L.icon({
+    iconUrl: 'assets/icon/user_location.png',  
+    iconSize:     [50, 50], // size of the icon
+    iconAnchor:   [25, 50], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -50] // point from which the popup should open relative to the iconAnchor
+    });
     this.active=2
     this.loadMap();
     this.routes=[]
@@ -186,7 +193,7 @@ loadMap(){
       var layer = e.target;
 
       layer.setStyle({
-          weight: 7
+          weight: 8
       });
       //bring polyline to front of map
       layer.bringToFront();
@@ -216,11 +223,11 @@ loadMap(){
         this.presentAlert("Location not available","Go to settings and enable location");
       }
     //get users location
-    Geolocation.getCurrentPosition().then((myposition) => {
+    Geolocation.getCurrentPosition({timeout:1000, enableHighAccuracy:true}).then((myposition) => {
         let latLng = {lat:myposition.coords.latitude,lng: myposition.coords.longitude};
         //set up marker with popup onto map
         let content = "<h4>Your Location!</h4>";
-        this.locationMarker=new L.Marker(latLng)
+        this.locationMarker=new L.Marker(latLng,{icon:this.user_icon})
         //add location marker to map
         this.map.addLayer(this.locationMarker)
         //add popup to location marker and display popup on map
@@ -228,10 +235,10 @@ loadMap(){
              
 
         this.map.setView(latLng,15);
-       }, (err) => {
-         //show alert if location is not enable on user's mobile phone
+       }).catch(error=>{
+        //show alert if location is not enable on user's mobile phone
          this.presentAlert('Location not enable','Please go to location settings and enable location')
-    });
+      });;
   }
   //method to present alert to user
   presentAlert(title,subtitle){

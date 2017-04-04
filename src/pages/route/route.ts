@@ -18,6 +18,9 @@ export class RoutePage {
   tempStopMarker:any=null;
   busMarker:any=null;
   count:number=0;
+  bus_stopIcon:any;
+  bus_icon:any;
+  user_icon:any;
 
   constructor(public navCtrl: NavController, public params: NavParams, public alertCtrl:AlertController, public routes_stops_service:RoutesStopsService) {
     //get route information from constructor
@@ -27,7 +30,26 @@ export class RoutePage {
   //method that runs when the page is inticialized
   ngOnInit(){
     this.stops=[]
+    this.bus_stopIcon = L.icon({
+    iconUrl: 'assets/icon/bus_stopIcon.png',
+    iconSize:     [30, 30], // size of the icon
+    iconAnchor:   [15, 15], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -15] // point from which the popup should open relative to the iconAnchor
+    });
+    this.bus_icon = L.icon({
+    iconUrl: 'assets/icon/bus.png',  
+    iconSize:     [50, 50], // size of the icon
+    iconAnchor:   [25, 50], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -20] // point from which the popup should open relative to the iconAnchor
+    });
+    this.user_icon = L.icon({
+    iconUrl: 'assets/icon/user_location.png',  
+    iconSize:     [50, 50], // size of the icon
+    iconAnchor:   [25, 50], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, -50] // point from which the popup should open relative to the iconAnchor
+    });
     this.loadMap();
+    
   }
   //method to load leaflet map container and openstreet map tile layer
   loadMap(){
@@ -96,7 +118,7 @@ loadStops(){
 addStop(stop){
    var coords={lat:stop.stop_latitude,lng:stop.stop_longitude}
    let content = "<h4>"+stop.stop_name+"</h4><p>"+stop.stop_description+"</p>";
-   let marker=L.marker(coords).bindPopup(content); 
+   let marker=L.marker(coords,{icon: this.bus_stopIcon}).bindPopup(content); 
    this.map.addLayer(marker);
 }
 //center map to the given latitude and longitude
@@ -124,7 +146,7 @@ centerStop(stop){
     }
     let latLng = {lat:stop.stop_latitude,lng:stop.stop_longitude};    
     let content = "<h4>"+stop.stop_name+"</h4><p>"+stop.stop_description+"</p>";
-    this.tempStopMarker=L.marker(latLng).bindPopup(content); 
+    this.tempStopMarker=L.marker(latLng,{icon: this.bus_stopIcon}).bindPopup(content); 
     this.map.addLayer(this.tempStopMarker);
     this.tempStopMarker.openPopup();
     this.map.setView(latLng,15);
@@ -148,7 +170,7 @@ nearbyStop(){
       this.tempStopMarker=null;
     }
     //get users location
-    Geolocation.getCurrentPosition().then((myposition) => {
+    Geolocation.getCurrentPosition({timeout:1000, enableHighAccuracy:true}).then((myposition) => {
         //coordinates
         let latitude=myposition.coords.latitude;
         let longitude=myposition.coords.longitude;
@@ -156,7 +178,7 @@ nearbyStop(){
 
         //set up marker with pop up and add to map
         let content = "<h4>Your Location!</h4>";
-        this.locationMarker= new L.Marker(latLng)
+        this.locationMarker= new L.Marker(latLng,{icon:this.user_icon})
         this.locationMarker.bindPopup(content);
         this.map.addLayer(this.locationMarker)
        
@@ -166,13 +188,14 @@ nearbyStop(){
 
         //set up nearby stop marker with pop up onto map
         let nearbyLatLng={lat:nearbyStopCoordinates.stop_latitude,lng:nearbyStopCoordinates.stop_longitude}
-        let content1 = "<h4>NearbyStop</h4>";
-        this.nearbyStopMarker= new L.Marker(nearbyLatLng)
+        let content1 = "<h6>"+nearbyStopCoordinates.stop_name+" is the closest bus stop</h6>";
+        this.nearbyStopMarker= new L.Marker(nearbyLatLng,{icon: this.bus_stopIcon})
         this.map.addLayer(this.nearbyStopMarker)
         this.nearbyStopMarker.bindPopup(content1).openPopup()
         
 
         this.map.fitBounds([[nearbyLatLng.lat,nearbyLatLng.lng],[latitude,longitude]]);
+        this.map.setZoom(14)
        }, (err) => {
          //if location is not enable present this alert
          this.presentAlert('Location not enable','Please go to location settings and enable location')
@@ -182,15 +205,14 @@ nearbyStop(){
 //method to find the closest bus stop with respect to users location
 getShortestDistance(lat,lng){
   var shortestDistance=10e10
-  var closestCoordinates={stop_latitude:0,stop_longitude:0}
+  var closestCoordinates={stop_latitude:0,stop_longitude:0,stop_name:"None"}
   //calculate harvesine distance for each stop and filter out the shortest distance
   for(var i=0;i<this.stops.length;i++){
     var stop=this.stops[i]
     var distance=this.harvesineFormula(lat,lng,stop.stop_latitude,stop.stop_longitude)
     if(distance<shortestDistance){
       shortestDistance=distance;
-      closestCoordinates.stop_latitude=stop.stop_latitude;
-      closestCoordinates.stop_longitude=stop.stop_longitude;
+      closestCoordinates=stop;
     }
   }
   return closestCoordinates;
@@ -198,6 +220,8 @@ getShortestDistance(lat,lng){
 //harvesine formula is use to calculate the distance of two points on the sphere 
 //using the latitudes and longitudes of the two points
 harvesineFormula(lat1,lon1,lat2,lon2){
+  //reference for javascript code online
+  //http://www.movable-type.co.uk/scripts/latlong.html 
   //phi is latitude
   //lambda are longitudes
   var R = 6371e3; // metres
@@ -224,7 +248,7 @@ busLocationCycle(){
         if(this.count<=this.route.path.length){
             let latLng = {lat:this.route.path[this.count].lat,lng:this.route.path[this.count].lng};    
             let content = "<h4>Bus X in "+this.route.route_name+"</h4>";
-            this.busMarker=L.marker(latLng).bindPopup(content); 
+            this.busMarker=L.marker(latLng,{icon: this.bus_icon}).bindPopup(content); 
             this.map.addLayer(this.busMarker);
             this.count=this.count+5;
       }
