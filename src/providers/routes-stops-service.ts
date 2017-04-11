@@ -13,22 +13,26 @@ export class RoutesStopsService {
   }
   //this method retrieves all the routes information from the routes.json
   getRoutes(){
-    return this.HTTP.get("assets/data/routes.json")
+    //let url="assets/data/routes.json";
+    let url="http://localhost:8080/timuserRoutes/getAllRoutes"
+    return this.HTTP.get(url)
         .map(res =>res.json());
   }
   //this method retrieves all the stops information from stops.json
-  getStops(){
-    return this.HTTP.get("assets/data/stops.json")
-        .map(res =>res.json());
-  }
+  // getStops(){
+  //   return this.HTTP.get("assets/data/stops.json")
+  //       .map(res =>res.json());
+  // }
   //this method retrieves a particular routes that has a specific routeid
-  getRoute(routeid){
-       return this.HTTP.get("assets/data/route"+routeid+".json")
-        .map(res =>res.json());
-  }
+  // getRoute(routeid){
+  //      return this.HTTP.get("assets/data/route"+routeid+".json")
+  //       .map(res =>res.json());
+  // }
   //this gets all the stops from a specific route with a defined routeid
   getStopsFromRoute(routeid){
-       return this.HTTP.get("assets/data/stops"+routeid+".json")
+    //let url="assets/data/stops"+routeid+".json"
+    let url="http://localhost:8080/timuserRoutes/getStopsFromRoute?route_id="+routeid
+    return this.HTTP.get(url)
         .map(res =>res.json());
   }
 }

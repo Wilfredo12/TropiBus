@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import {Geolocation} from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
 import L from "leaflet";
@@ -22,7 +22,7 @@ export class MapOverviewPage {
   active:number;
   user_icon:any;
 
-  constructor(public navCtrl: NavController,public routes_stops_service:RoutesStopsService, public alertCtrl:AlertController) {
+  constructor(public navCtrl: NavController,public routes_stops_service:RoutesStopsService, public loading:LoadingController,public alertCtrl:AlertController) {
     
   }
 //method that runs when page is intialized
@@ -63,11 +63,25 @@ loadMap(){
   //the TIM system, once routes are retrieved we call the loadRoutes method to load the routes
   //onto the map
   getRoutes(){
+
+    let loading = this.loading.create({
+    content: 'Fetching Routes...'
+    });
+    loading.present()
+
     this.routes_stops_service.getRoutes().subscribe(response =>{
-        this.routes=response.routes;
+      console.log(response)
+        this.routes=response;
+        loading.dismiss();
         this.loadRoutes();
         console.log(response)
-  })
+    },err => {
+        console.log("error status",err.status)
+        if(err.status==0){
+          loading.dismiss();
+          this.presentAlert("Error Connecting to Server","Please establish a connection and try again");
+        }  
+    })
   }
   //this method load route's paths onto map
   loadRoutes(){
@@ -82,7 +96,7 @@ loadMap(){
                opacity: 1.0
              };
              //create polyline with pop up
-            var polyline = new L.Polyline(route.path, polylineOptions);
+            var polyline = new L.Polyline(route.route_path, polylineOptions);
             //add polyline to map
             polyline.addTo(this.map)
             let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
@@ -130,7 +144,7 @@ loadMap(){
                opacity: 1.0
              };
              //create polyline with popup for each route
-            var polyline = new L.Polyline(route.path, polylineOptions);
+            var polyline = new L.Polyline(route.route_path, polylineOptions);
             //add polyline to map
             polyline.addTo(this.map);            
             let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"
@@ -168,7 +182,7 @@ loadMap(){
                   opacity: 1.0
                 };
                 //create polyline with popup for each litoral route
-                var polyline = new L.Polyline(route.path, polylineOptions);
+                var polyline = new L.Polyline(route.route_path, polylineOptions);
                 //adding polyline to maps
                 polyline.addTo(this.map);
                 let content= "<h4>"+route.route_name+"</h4><p>"+route.route_description+"</p>"

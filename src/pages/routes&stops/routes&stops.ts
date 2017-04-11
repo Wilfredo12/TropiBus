@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController,AlertController  } from 'ionic-angular';
+import { NavController,AlertController, LoadingController } from 'ionic-angular';
 import { RoutePage } from '../route/route';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
 
@@ -11,16 +11,27 @@ export class Routes_StopsPage {
 
   routes: any;
 
-  constructor(public navCtrl: NavController, public alertCtrl:AlertController, public routeService:RoutesStopsService ) {
+  constructor(public navCtrl: NavController, public alertCtrl:AlertController, public routeService:RoutesStopsService,public loading:LoadingController ) {
 
   }
   //method called when page is initialized
   //it will retrieved all bus routes information
   ngOnInit(){
+    let loading = this.loading.create({
+    content: 'Fetching Routes...'
+    });
+    loading.present()
     this.routeService.getRoutes().subscribe(response =>{
-        this.routes=response.routes;
+        this.routes=response;
+        loading.dismiss();
         console.log(response)
-  })
+  },err => {
+        console.log("error status",err.status)
+        if(err.status==0){
+          loading.dismiss();
+          this.presentAlert("Error Connecting to Server","Please establish a connection and try again");
+        }  
+    })
 }
 //method to display description of route using the alert controller
   viewDescription(route){
@@ -47,5 +58,13 @@ export class Routes_StopsPage {
     }
     else return "dark"
   }
+  presentAlert(title,subTitle){
+    let alert = this.alertCtrl.create({
+                    title: title,
+                    subTitle: subTitle,
+                    buttons: ['Dismiss']
+                  });
+    alert.present();
+    }
 
 }

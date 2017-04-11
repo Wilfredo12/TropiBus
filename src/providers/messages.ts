@@ -10,7 +10,9 @@ export class Messages {
     console.log('Hello Messages Provider');
   }
 getMessages(){
-    return this.http.get("assets/data/messages.json")
+   //let url="assets/data/messages.json"
+   let url="http://localhost:8080/timuserRoutes/getMessages"
+    return this.http.get(url)
         .map(res =>res.json());
   }
 }

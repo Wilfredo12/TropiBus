@@ -7,7 +7,7 @@ import { MapOverviewPage } from '../pages/mapOverview/mapOverview';
 import { Routes_StopsPage } from '../pages/routes&stops/routes&stops';
 import { RoutePage } from '../pages/route/route';
 import { RoutesStopsService } from '../providers/routes-stops-service';
-import { ConnectivityService } from '../providers/connectivity-service';
+import { BusLocation } from '../providers/bus-location';
 import { Messages } from '../providers/messages';
 
 @NgModule({
@@ -31,6 +31,6 @@ import { Messages } from '../providers/messages';
     MapOverviewPage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ConnectivityService,RoutesStopsService,Messages]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},BusLocation,RoutesStopsService,Messages]
 })
 export class AppModule {}

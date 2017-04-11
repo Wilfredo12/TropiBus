@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, Platform } from 'ionic-angular';
+import { NavController, NavParams, AlertController, Platform, ToastController } from 'ionic-angular';
 import {Geolocation,InAppBrowser } from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
+import { BusLocation } from '../../providers/bus-location';
 import L from "leaflet";
 
 
@@ -24,7 +25,7 @@ export class RoutePage {
   bus_icon:any;
   user_icon:any;
 
-  constructor(public navCtrl: NavController,public params: NavParams,public platform:Platform, public alertCtrl:AlertController, public routes_stops_service:RoutesStopsService) {
+  constructor(public navCtrl: NavController,public params: NavParams,public toastCtrl:ToastController,public platform:Platform, public alertCtrl:AlertController, public busLocationService:BusLocation,public routes_stops_service:RoutesStopsService) {
     //get route information from constructor
     this.route=params.get("route");
     
@@ -76,7 +77,7 @@ export class RoutePage {
   //retrieved the method will call the loadStops method
 getStops(){
     //todo usar getStops con ruta especifica
-    this.routes_stops_service.getStopsFromRoute(this.route.route_ID).subscribe(response =>{
+    this.routes_stops_service.getStopsFromRoute(this.route.route_id).subscribe(response =>{
         // var tempstops=response.stops;
         // for(var i=0;i<tempstops.length;i++){
         //   if(tempstops[i].route_ID==this.route.route_ID){
@@ -84,11 +85,16 @@ getStops(){
         //   }
         // }
         console.log(response)
-        this.stops=response.stops;
+        this.stops=response;
         //center map on bus stop coordinates
         //this.centerMap(this.stops[0].stop_latitude,this.stops[0].stop_longitude);
         this.loadStops();
-  })
+  },err => {
+        console.log("error status",err.status)
+        if(err.status==0){
+          this.presentAlert("Error Connecting to Server","Please establish a connection and try again");
+        }  
+    })
 }
 //load route to map in the form of a polyline
 loadRoute(){
@@ -98,7 +104,7 @@ loadRoute(){
                opacity: 1.0
              };
 
-  var polyline = new L.Polyline(this.route.path, polylineOptions);
+  var polyline = new L.Polyline(this.route.route_path, polylineOptions);
   polyline.addTo(this.map)
   
   //route popup content
@@ -247,20 +253,26 @@ busLocationCycle(){
           this.map.removeLayer(this.busMarker)
           this.busMarker=null;
         }
-        if(this.count<=this.route.path.length){
-            let latLng = {lat:this.route.path[this.count].lat,lng:this.route.path[this.count].lng};    
-            let content = "<h4>Bus X in "+this.route.route_name+"</h4>";
-            this.busMarker=L.marker(latLng,{icon: this.bus_icon}).bindPopup(content); 
-            this.map.addLayer(this.busMarker);
-            this.count=this.count+5;
-      }
-      else{
-        this.count=0
-      }
+        this.busLocationService.getBusLocation(this.route.route_id).subscribe(response=>{
+            if(response.length!=0){
+                for(var i=0;i<response.length;i++){
+                    let latLng = {lat:response[i].gps_latitude,lng:response[i].gps_longitude};    
+                    let content = "<h4>Bus X in "+this.route.route_name+"</h4>";
+                    this.busMarker=L.marker(latLng,{icon: this.bus_icon}).bindPopup(content); 
+                    this.map.addLayer(this.busMarker);
+                }       
+            }
+              },err => {
+            console.log("error status",err.status)
+            if(err.status==0){
+              this.presentToast("Could not get bus location");
+            }  
+          })
+
            
     setTimeout(()=>{
       if(this.route.status) this.busLocationCycle();
-    },1000);
+    },10000);
   }
   viewStopOnBrowser(stop){
     console.log("entre a la parada",stop)
@@ -286,6 +298,14 @@ let alert = this.alertCtrl.create({
                 buttons: ['Dismiss']
               });
 alert.present();
+}
+presentToast(message) {
+  let toast = this.toastCtrl.create({
+    message: message,
+    duration: 2000,
+    position: 'middle'
+  });
+  toast.present();
 }
 
 }
