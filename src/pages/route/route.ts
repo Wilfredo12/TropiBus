@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
-import {Geolocation} from 'ionic-native';
+import { NavController, NavParams, AlertController, Platform } from 'ionic-angular';
+import {Geolocation,InAppBrowser } from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
 import L from "leaflet";
+
+
 
 @Component({
   selector: 'route',
@@ -22,7 +24,7 @@ export class RoutePage {
   bus_icon:any;
   user_icon:any;
 
-  constructor(public navCtrl: NavController, public params: NavParams, public alertCtrl:AlertController, public routes_stops_service:RoutesStopsService) {
+  constructor(public navCtrl: NavController,public params: NavParams,public platform:Platform, public alertCtrl:AlertController, public routes_stops_service:RoutesStopsService) {
     //get route information from constructor
     this.route=params.get("route");
     
@@ -259,6 +261,18 @@ busLocationCycle(){
     setTimeout(()=>{
       if(this.route.status) this.busLocationCycle();
     },1000);
+  }
+  viewStopOnBrowser(stop){
+    console.log("entre a la parada",stop)
+    let options ='location=yes,toolbar=yes,hidden=no';
+    let url="https://www.google.com.pr/maps/place//@"+stop.stop_latitude+","+stop.stop_longitude;
+    //let url="https://www.google.com.pr/maps/place/@"+stop.stop_latitude+","+stop.stop_longitude
+    this.platform.ready().then(() => {
+            const browser = new InAppBrowser(url, "_system", options);
+        });
+    
+    
+   
   }
 //change from degrees to radians
 toRad(degrees) {

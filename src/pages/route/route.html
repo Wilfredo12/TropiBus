@@ -14,7 +14,8 @@
                     <ion-icon name="bus" item-left></ion-icon>
                     <h2>{{stop.stop_name}}</h2>
                     <p>{{stop.stop_description}}</p>
-                    
+                     <button ion-button color="dark"  (click)="viewStopOnBrowser(stop)" round outline end> View Stop On Google Maps&nbsp; <ion-icon name="arrow-dropright-circle"> </ion-icon></button>
+     
                 </ion-item>
         </ion-list>
     </div>
