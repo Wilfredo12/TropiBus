@@ -15,6 +15,7 @@ export class AboutPage {
   getMessages(){
     
     this.messageService.getMessages().subscribe(response =>{
+        console.log("mensajes",response)
         this.messages=response;
         
         console.log(response)

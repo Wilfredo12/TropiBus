@@ -237,7 +237,7 @@ loadMap(){
         this.presentAlert("Location not available","Go to settings and enable location");
       }
     //get users location
-    Geolocation.getCurrentPosition({timeout:1000, enableHighAccuracy:true}).then((myposition) => {
+    Geolocation.getCurrentPosition({timeout:3000, enableHighAccuracy:true}).then((myposition) => {
         let latLng = {lat:myposition.coords.latitude,lng: myposition.coords.longitude};
         //set up marker with popup onto map
         let content = "<h4>Your Location!</h4>";

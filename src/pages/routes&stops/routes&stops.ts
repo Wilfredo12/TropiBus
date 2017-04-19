@@ -48,6 +48,20 @@ export class Routes_StopsPage {
           route:route
       });
   }
+  //refreshRoutes
+  refreshRoutes(refresher) {
+     this.routeService.getRoutes().subscribe(response =>{
+        refresher.complete();
+        this.routes=response;        
+        console.log(response)
+  },err => {
+        console.log("error status",err.status)
+        refresher.complete();
+        if(err.status==0){          
+          this.presentAlert("Error Connecting to Server","Please establish a connection and try again");
+        }  
+    })
+  }
   //method to change the color of the bus status
   getStatus(status){
     if(status=="Active"){

@@ -11,7 +11,7 @@ export class Messages {
   }
 getMessages(){
    //let url="assets/data/messages.json"
-   let url="http://localhost:8080/timuserRoutes/getMessages"
+   let url="https://evening-crag-15118.herokuapp.com/timuserRoutes/getMessages"
     return this.http.get(url)
         .map(res =>res.json());
   }

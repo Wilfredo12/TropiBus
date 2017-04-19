@@ -24,6 +24,7 @@ export class RoutePage {
   bus_stopIcon:any;
   bus_icon:any;
   user_icon:any;
+  leave:boolean=false;
 
   constructor(public navCtrl: NavController,public params: NavParams,public toastCtrl:ToastController,public platform:Platform, public alertCtrl:AlertController, public busLocationService:BusLocation,public routes_stops_service:RoutesStopsService) {
     //get route information from constructor
@@ -178,7 +179,7 @@ nearbyStop(){
       this.tempStopMarker=null;
     }
     //get users location
-    Geolocation.getCurrentPosition({timeout:1000, enableHighAccuracy:true}).then((myposition) => {
+    Geolocation.getCurrentPosition({timeout:3000, enableHighAccuracy:true}).then((myposition) => {
         //coordinates
         let latitude=myposition.coords.latitude;
         let longitude=myposition.coords.longitude;
@@ -201,7 +202,7 @@ nearbyStop(){
         this.map.addLayer(this.nearbyStopMarker)
         this.nearbyStopMarker.bindPopup(content1).openPopup()
         
-
+        //this.map.setView(nearbyLatLng,15);
         this.map.fitBounds([[nearbyLatLng.lat,nearbyLatLng.lng],[latitude,longitude]]);
         this.map.setZoom(14)
        }, (err) => {
@@ -249,6 +250,7 @@ harvesineFormula(lat1,lon1,lat2,lon2){
 }
 //fetch bus location every 10 seconds for now just simulation
 busLocationCycle(){
+    console.log("entre al location cycle")
         if(this.busMarker!=null){
           this.map.removeLayer(this.busMarker)
           this.busMarker=null;
@@ -271,8 +273,8 @@ busLocationCycle(){
 
            
     setTimeout(()=>{
-      if(this.route.status) this.busLocationCycle();
-    },10000);
+      if(this.route.status&&!this.leave) this.busLocationCycle();
+    },5000);
   }
   viewStopOnBrowser(stop){
     console.log("entre a la parada",stop)
@@ -280,7 +282,8 @@ busLocationCycle(){
     let url="https://www.google.com.pr/maps/place//@"+stop.stop_latitude+","+stop.stop_longitude;
     //let url="https://www.google.com.pr/maps/place/@"+stop.stop_latitude+","+stop.stop_longitude
     this.platform.ready().then(() => {
-            const browser = new InAppBrowser(url, "_system", options);
+      //const browser =
+            new InAppBrowser(url, "_system", options);
         });
     
     
@@ -306,6 +309,10 @@ presentToast(message) {
     position: 'middle'
   });
   toast.present();
+}
+
+ionViewDidLeave(){
+  this.leave=true;
 }
 
 }
