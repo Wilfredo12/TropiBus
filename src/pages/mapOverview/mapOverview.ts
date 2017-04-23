@@ -3,7 +3,7 @@ import { NavController, AlertController, LoadingController } from 'ionic-angular
 import {Geolocation} from 'ionic-native';
 import { RoutesStopsService } from '../../providers/routes-stops-service';
 import L from "leaflet";
-
+import { RoutePage } from '../route/route';
 
 @Component({
   selector: 'maps-Overview',
@@ -21,7 +21,8 @@ export class MapOverviewPage {
   layer:any;
   active:number;
   user_icon:any;
-
+  routeClicked={routeId:null,name:null};
+  
   constructor(public navCtrl: NavController,public routes_stops_service:RoutesStopsService, public loading:LoadingController,public alertCtrl:AlertController) {
     
   }
@@ -91,9 +92,11 @@ loadMap(){
         if(route.route_area=="city"){
           //create polyline options
           var polylineOptions = {
+               route_id:route.route_id,
+               route_name:route.route_name,
                color: route.color,
                weight: 6,
-               opacity: 1.0
+               opacity: 0.8
              };
              //create polyline with pop up
             var polyline = new L.Polyline(route.route_path, polylineOptions);
@@ -139,9 +142,11 @@ loadMap(){
         if(route.route_area=="rural"){
           console.log(route)
           var polylineOptions = {
+               route_id:route.route_id,
+               route_name:route.route_name,
                color: route.color,
                weight: 6,
-               opacity: 1.0
+               opacity: 0.8
              };
              //create polyline with popup for each route
             var polyline = new L.Polyline(route.route_path, polylineOptions);
@@ -152,10 +157,11 @@ loadMap(){
             polyline.bindPopup(content)
             //keep track of routes added to map
             this.polylinePaths.push(polyline)
-            //set highlights listerners
-            this.setHighLights();
+            
         }
       }
+      //set highlights listerners
+      this.setHighLights();
       //fit bounds of map to last polyline added to map
       this.map.fitBounds(this.polylinePaths[this.polylinePaths.length-1].getBounds());
 
@@ -177,9 +183,11 @@ loadMap(){
            console.log(route)
            //setting up polyline options
             var polylineOptions = {
+                  route_id:route.route_id,
+                  route_name:route.route_name,
                   color: route.color,
                   weight: 6,
-                  opacity: 1.0
+                  opacity: 0.8
                 };
                 //create polyline with popup for each litoral route
                 var polyline = new L.Polyline(route.route_path, polylineOptions);
@@ -190,10 +198,11 @@ loadMap(){
                 polyline.bindPopup(content);
                 //keep track of al polylines with polylinePaths array
                 this.polylinePaths.push(polyline)
-                this.setHighLights();
+                
         }
         
       }
+      this.setHighLights();
       //fit bounds of map to last polyline added
       this.map.fitBounds(this.polylinePaths[this.polylinePaths.length-1].getBounds());
   }
@@ -203,9 +212,16 @@ loadMap(){
     for(var i=0;i<this.polylinePaths.length;i++){
     let polyLine=this.polylinePaths[i];
     //when polyline is click is weight is increased
+    var that=this
     polyLine.on('click', function(e) {
+      console.log("routecli",that.routeClicked)
+          
       var layer = e.target;
-
+      //a route was clicked
+      that.routeClicked.routeId=layer.options.route_id;
+      that.routeClicked.name=layer.options.route_name;
+       
+      console.log(layer)
       layer.setStyle({
           weight: 8
       });
@@ -214,7 +230,8 @@ loadMap(){
       
     });
     //when users click somewhere else on the map polyline returns to its initial state
-      polyLine.on('mouseout', function(e) { 
+      polyLine.on('mouseout', function(e) {
+        
         var layer = e.target;
         layer.setStyle({
           weight: 6
@@ -223,7 +240,18 @@ loadMap(){
       })
   }
 }
-
+//method to view route
+viewRoute(){
+  var route=null
+  for(let temp of this.routes){
+    if(temp.route_id==this.routeClicked.routeId){
+      route=temp;
+    }
+  }
+  this.navCtrl.push(RoutePage,{
+          route:route
+      });
+}
 //gets the location of the user and add a marker in that location
 //if location services are not on, an alert will pop up 
   myLocation(){
@@ -266,6 +294,7 @@ loadMap(){
   //this function is used to set which type of routes are active
   //1 for rural area, 2 for city, and 3 for litoral area 
   setActive(active){
+    this.routeClicked.name=null;
     this.active=active;
   }
   //if "active" variable is 1 the color of the button rural is colored blue,
@@ -279,5 +308,7 @@ loadMap(){
     else return "dark"
   }
 
-
+  ionViewDidLeave(){
+    this.navCtrl.pop()
+  }
 }

@@ -25,6 +25,7 @@ export class RoutePage {
   bus_icon:any;
   user_icon:any;
   leave:boolean=false;
+  
 
   constructor(public navCtrl: NavController,public params: NavParams,public toastCtrl:ToastController,public platform:Platform, public alertCtrl:AlertController, public busLocationService:BusLocation,public routes_stops_service:RoutesStopsService) {
     //get route information from constructor
@@ -197,14 +198,15 @@ nearbyStop(){
 
         //set up nearby stop marker with pop up onto map
         let nearbyLatLng={lat:nearbyStopCoordinates.stop_latitude,lng:nearbyStopCoordinates.stop_longitude}
-        let content1 = "<h6>"+nearbyStopCoordinates.stop_name+" is the closest bus stop</h6>";
+        // let url="https://www.google.com/maps/place/"+nearbyStopCoordinates.stop_latitude+","+nearbyStopCoordinates.stop_longitude
+        let content1 = "<h6>"+nearbyStopCoordinates.stop_name+" is the closest bus stop</h6><p>It is <b>"+Math.round(nearbyStopCoordinates.distance * 100) / 100+" </b>meters away from you.";
         this.nearbyStopMarker= new L.Marker(nearbyLatLng,{icon: this.bus_stopIcon})
+        this.nearbyStopMarker.bindPopup(content1)
         this.map.addLayer(this.nearbyStopMarker)
-        this.nearbyStopMarker.bindPopup(content1).openPopup()
-        
-        //this.map.setView(nearbyLatLng,15);
-        this.map.fitBounds([[nearbyLatLng.lat,nearbyLatLng.lng],[latitude,longitude]]);
-        this.map.setZoom(14)
+        this.nearbyStopMarker.openPopup();        
+        this.map.setView(nearbyLatLng,15);
+        //this.map.fitBounds([[nearbyLatLng.lat,nearbyLatLng.lng],[latitude,longitude]]);
+        //this.map.setZoom(14)
        }, (err) => {
          //if location is not enable present this alert
          this.presentAlert('Location not enable','Please go to location settings and enable location')
@@ -214,7 +216,7 @@ nearbyStop(){
 //method to find the closest bus stop with respect to users location
 getShortestDistance(lat,lng){
   var shortestDistance=10e10
-  var closestCoordinates={stop_latitude:0,stop_longitude:0,stop_name:"None"}
+  var closestCoordinates={stop_latitude:0,stop_longitude:0,stop_name:"None",distance:0};
   //calculate harvesine distance for each stop and filter out the shortest distance
   for(var i=0;i<this.stops.length;i++){
     var stop=this.stops[i]
@@ -222,6 +224,7 @@ getShortestDistance(lat,lng){
     if(distance<shortestDistance){
       shortestDistance=distance;
       closestCoordinates=stop;
+      closestCoordinates.distance=shortestDistance
     }
   }
   return closestCoordinates;
@@ -245,7 +248,6 @@ harvesineFormula(lat1,lon1,lat2,lon2){
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 
   var distance = R * c;
-  console.log(distance)
   return distance
 }
 //fetch bus location every 10 seconds for now just simulation
@@ -276,17 +278,26 @@ busLocationCycle(){
       if(this.route.status&&!this.leave) this.busLocationCycle();
     },5000);
   }
+  //gettingDirections for nearest stop
+  getDirections(){
+      let options ='location=yes,toolbar=yes,hidden=no';
+      let url="https://www.google.com/maps/place/"+this.nearbyStopMarker.getLatLng().lat+","+this.nearbyStopMarker.getLatLng().lng;
+      this.platform.ready().then(() => {
+      //const browser =
+            new InAppBrowser(url, "_system", options);
+        });   
+  }
   viewStopOnBrowser(stop){
-    console.log("entre a la parada",stop)
+    // console.log("entre a la parada",stop)
     let options ='location=yes,toolbar=yes,hidden=no';
-    let url="https://www.google.com.pr/maps/place//@"+stop.stop_latitude+","+stop.stop_longitude;
+    //https://www.google.com/maps/preview/@-15.623037,18.388672,8z=
+    //http://www.google.com/maps/place/49.46800006494457,17.11514008755796
+    let url="https://www.google.com/maps/place/"+stop.stop_latitude+","+stop.stop_longitude;
     //let url="https://www.google.com.pr/maps/place/@"+stop.stop_latitude+","+stop.stop_longitude
     this.platform.ready().then(() => {
       //const browser =
             new InAppBrowser(url, "_system", options);
-        });
-    
-    
+        });   
    
   }
 //change from degrees to radians

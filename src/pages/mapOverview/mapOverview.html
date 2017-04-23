@@ -22,5 +22,9 @@
   </ion-fab>
   <ion-fab bottom right>
    <button ion-fab mini color="tropiBlue" (click)="myLocation()"><ion-icon name="locate"></ion-icon></button>
- </ion-fab>  
+ </ion-fab> 
+ <ion-fab [hidden]="!routeClicked.name" top right>
+   <button ion-button color="tropiBlue" (click)="viewRoute()">View {{routeClicked.name}}</button>
+ </ion-fab>
+  
 </ion-content>
